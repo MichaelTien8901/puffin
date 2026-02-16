@@ -7,7 +7,9 @@ has_children: true
 
 # Part 1: Market Foundations
 
-Learn how financial markets work — from exchanges and order books to asset classes and key financial metrics.
+Imagine you want to buy or sell something — say a share of Apple stock. Where do you go? How does the price get decided? And who are the other people you're trading with? This section answers those questions by walking you through the infrastructure of financial markets, from the "auction houses" where trading happens (exchanges) to the scoreboard that tracks every offer (the order book).
+
+You'll also learn how to measure whether a trade was good or bad using metrics like returns, volatility, and the Sharpe ratio — and see real-world case studies of when markets went haywire.
 
 ## Chapters
 

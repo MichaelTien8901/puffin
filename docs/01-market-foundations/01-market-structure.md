@@ -33,6 +33,9 @@ Modern exchanges are almost entirely electronic. Orders are matched by a **match
 
 The **order book** is the core data structure of any exchange. It maintains all outstanding buy and sell orders for a given instrument.
 
+{: .tip }
+> **Plain English:** Think of the order book as a queue at a store, but instead of waiting in line, people can offer *different prices* to cut ahead. Buyers line up on one side saying "I'll pay this much," sellers line up on the other saying "I want at least this much," and whenever the prices meet, a trade happens.
+
 ```
          Order Book: AAPL
     ┌─────────────────────────┐
@@ -58,6 +61,9 @@ The **order book** is the core data structure of any exchange. It maintains all 
 - **Mid-price**: The midpoint between bid and ask: `(bid + ask) / 2`
 
 {: .tip }
+> **Plain English — Liquidity:** Liquidity is how easy it is to sell something without lowering the price. Cash is perfectly liquid — you can spend it instantly. A house is illiquid — selling it takes time and you might have to accept a lower price. Stocks with tight spreads (like AAPL) are very liquid.
+
+{: .tip }
 A **tight spread** (small bid-ask gap) indicates high liquidity. Liquid instruments like AAPL or SPY typically have spreads of $0.01. Less liquid stocks may have spreads of $0.10 or more.
 
 ### Price-Time Priority
@@ -74,6 +80,11 @@ Understanding who you're trading against is crucial for strategy design.
 | Participant | Role | Time Horizon |
 |-------------|------|-------------|
 | **Market Makers** | Provide liquidity by quoting bid/ask | Seconds to minutes |
+
+{: .tip }
+> **Plain English:** A market maker is like a grocery store that always has milk in stock. Without the store, you'd have to find a farmer every time you wanted milk. Market makers "stock the shelves" of the market so there's always someone to buy from or sell to.
+
+
 | **Institutional Investors** | Mutual funds, pension funds, insurance | Months to years |
 | **Hedge Funds** | Diverse strategies, often quantitative | Minutes to months |
 | **Retail Traders** | Individual investors | Days to years |

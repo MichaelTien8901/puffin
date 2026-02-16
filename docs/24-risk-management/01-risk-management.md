@@ -184,6 +184,9 @@ Portfolio-level risk controls prevent catastrophic losses.
 
 ### Drawdown Monitoring
 
+{: .tip }
+> **Plain English:** Drawdown is the "max pain" — the deepest valley your account falls into from a peak. If your account grew to $110,000 then dropped to $90,000, that's a $20,000 (18%) drawdown. It answers the question: "What's the worst it got before things improved?"
+
 Monitor and limit drawdown:
 
 ```python
@@ -234,6 +237,9 @@ if triggered:
 # Reset when ready to resume
 rm.reset_circuit_breaker()
 ```
+
+{: .tip }
+> **Plain English — Sharpe Ratio:** The Sharpe Ratio is a score for your trading efficiency. Think of it as: "How much stress do I have to endure for every dollar I make?" A high Sharpe means smooth, consistent returns. A low Sharpe means a roller coaster ride — is the destination really worth it?
 
 ### Value at Risk (VaR)
 

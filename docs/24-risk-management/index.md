@@ -7,7 +7,7 @@ has_children: true
 
 # Part 24: Risk Management
 
-Implement position sizing, stop losses, and portfolio-level risk controls.
+Even the best trading strategy will lose money sometimes. Risk management is about protecting your capital so that losing streaks don't wipe you out. Think of it like poker: knowing *how much* to bet is just as important as knowing *what* to bet on. This section teaches you to size your bets wisely, set safety nets (stop losses) that automatically limit damage, and monitor your portfolio's health so you can stay in the game long-term.
 
 ## Chapters
 

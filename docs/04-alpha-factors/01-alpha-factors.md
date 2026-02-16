@@ -13,6 +13,9 @@ Alpha factors are the building blocks of quantitative trading strategies. They a
 
 An alpha factor is a quantitative signal that captures some aspect of market behavior or asset characteristics that may predict future returns. The term "alpha" refers to excess returns above a benchmark.
 
+{: .tip }
+> **Plain English:** Alpha is your "skill" versus "luck." If the tide lifts all boats (the market goes up), Alpha is having a motor that makes you go *even faster*. Specifically: if the market returns 10% and you return 15%, your Alpha is that extra 5%.
+
 Key characteristics of good alpha factors:
 - **Predictive Power**: Strong correlation with future returns
 - **Stability**: Consistent performance across different time periods
@@ -24,6 +27,9 @@ Key characteristics of good alpha factors:
 ### 1. Momentum Factors
 
 Momentum factors capture the tendency of assets to continue moving in the same direction. They are based on the observation that "winners keep winning and losers keep losing" (at least in the short to medium term).
+
+{: .tip }
+> **Plain English:** Momentum is like a freight train — it takes a long time to speed up and a long time to slow down. Stocks that have been going up tend to *keep* going up for a while, and vice versa. Momentum strategies ride that train.
 
 ```python
 import pandas as pd
@@ -456,6 +462,9 @@ combined_weighted = combine_alphas(
 market_beta = pd.DataFrame({'AAPL': [1.2, 1.1, 1.2, 1.1, 1.2]})
 neutral_factor = neutralize_factor(combined_weighted, market_beta)
 ```
+
+{: .tip }
+> **Plain English:** Beta measures how much a stock moves *with* the market. If the market sneezes, does your stock catch a cold (high Beta) or stay healthy (low Beta)? A Beta of 1.5 means your stock moves 50% more than the market — exciting on the way up, painful on the way down.
 
 ## Complete Factor Research Workflow
 
