@@ -7,7 +7,7 @@ baseurl: "/puffin"
 url: ""
 
 # Theme
-remote_theme: just-the-docs/just-the-docs
+theme: just-the-docs
 color_scheme: dark
 
 # Mermaid diagrams
@@ -63,11 +63,6 @@ defaults:
       path: ""
     values:
       layout: default
-
-# Plugins
-plugins:
-  - jekyll-remote-theme
-  - jekyll-include-cache
 
 # Build settings
 markdown: kramdown
