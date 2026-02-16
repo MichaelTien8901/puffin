@@ -1,0 +1,60 @@
+// Custom styles for Mermaid diagrams - paper-like background
+.mermaid {
+  background-color: #d5d0c8 !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+}
+
+pre.mermaid {
+  background-color: #d5d0c8 !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+}
+
+.language-mermaid {
+  background-color: #d5d0c8 !important;
+}
+
+// Dark gray text
+.mermaid text {
+  fill: #2c3e50 !important;
+}
+
+.mermaid .nodeLabel {
+  color: #2c3e50 !important;
+}
+
+.mermaid .label {
+  color: #2c3e50 !important;
+}
+
+// Dark gray lines
+.mermaid .edgePath .path {
+  stroke: #4a5568 !important;
+  stroke-width: 2px !important;
+}
+
+.mermaid .flowchart-link {
+  stroke: #4a5568 !important;
+  stroke-width: 2px !important;
+}
+
+.mermaid .arrowheadPath {
+  fill: #4a5568 !important;
+}
+
+.mermaid .messageLine0,
+.mermaid .messageLine1 {
+  stroke: #4a5568 !important;
+  stroke-width: 1.5px !important;
+}
+
+.mermaid .actor-line {
+  stroke: #7a8a9a !important;
+}
+
+.mermaid .mindmap-edges path {
+  stroke: #4a5568 !important;
+  stroke-width: 2px !important;
+}

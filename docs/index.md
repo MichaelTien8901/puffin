@@ -40,6 +40,32 @@ graph TD
     G --> W[Part 23: Live Trading]
     W --> X[Part 24: Risk Management]
     X --> Y[Part 25: Monitoring & Analytics]
+
+    style A fill:#2d5016,stroke:#1a3a1a,color:#e8e0d4
+    style B fill:#2d5016,stroke:#1a3a1a,color:#e8e0d4
+    style C fill:#2d5016,stroke:#1a3a1a,color:#e8e0d4
+    style D fill:#1a3a5c,stroke:#0d2137,color:#e8e0d4
+    style E fill:#1a3a5c,stroke:#0d2137,color:#e8e0d4
+    style F fill:#8b4513,stroke:#5c2d0a,color:#e8e0d4
+    style G fill:#8b4513,stroke:#5c2d0a,color:#e8e0d4
+    style H fill:#4a2060,stroke:#2d1040,color:#e8e0d4
+    style I fill:#4a2060,stroke:#2d1040,color:#e8e0d4
+    style J fill:#4a2060,stroke:#2d1040,color:#e8e0d4
+    style K fill:#4a2060,stroke:#2d1040,color:#e8e0d4
+    style L fill:#4a2060,stroke:#2d1040,color:#e8e0d4
+    style M fill:#0d4a5c,stroke:#083040,color:#e8e0d4
+    style N fill:#0d4a5c,stroke:#083040,color:#e8e0d4
+    style O fill:#0d4a5c,stroke:#083040,color:#e8e0d4
+    style P fill:#6b2d5b,stroke:#401a38,color:#e8e0d4
+    style Q fill:#6b2d5b,stroke:#401a38,color:#e8e0d4
+    style R fill:#6b2d5b,stroke:#401a38,color:#e8e0d4
+    style S fill:#6b2d5b,stroke:#401a38,color:#e8e0d4
+    style T fill:#6b2d5b,stroke:#401a38,color:#e8e0d4
+    style U fill:#6b2d5b,stroke:#401a38,color:#e8e0d4
+    style V fill:#8b4513,stroke:#5c2d0a,color:#e8e0d4
+    style W fill:#7a2020,stroke:#4a1010,color:#e8e0d4
+    style X fill:#7a2020,stroke:#4a1010,color:#e8e0d4
+    style Y fill:#7a2020,stroke:#4a1010,color:#e8e0d4
 ```
 
 ## Parts
