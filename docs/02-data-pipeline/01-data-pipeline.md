@@ -125,6 +125,9 @@ provider.stream_realtime(["AAPL", "MSFT"], callback=on_update)
 2. Compare the cache performance: time a fresh fetch vs. a cached fetch
 3. Experiment with different preprocessing fill methods and observe the differences
 
+{: .note }
+> **Modern Alternatives:** This tutorial uses pandas and SQLite, which are the industry standard for getting started. If you're working with large datasets (millions of rows) or need faster performance, consider [Polars](https://pola.rs/) as a drop-in DataFrame alternative (often 10-100x faster than pandas) and [DuckDB](https://duckdb.org/) as a local analytics database that can query CSV/Parquet files directly. Both integrate well with the pandas ecosystem and are increasingly popular in quantitative finance workflows.
+
 ## Summary
 
 - The `DataProvider` interface abstracts data sources for easy swapping
