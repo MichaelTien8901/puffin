@@ -83,3 +83,26 @@ puffin/
 - Tutorial docs use Jekyll + Just the Docs with folder naming: `NN-topic-name/`
 - Python code follows the Strategy pattern for swappable components (DataProvider, Strategy, Broker, LLMProvider)
 - All strategies implement the `Strategy` base class with `generate_signals()` and `get_parameters()`
+
+
+## GitHub Pages / docs/ Setup
+
+* Reference: ~/projects/rust-guide-tutorial-openspec/docs/ for the proven pattern.
+
+* Theme: just-the-docs with color_scheme: dark
+* Mermaid: Built-in support via mermaid: config key (version 10.6.0)
+* Gemfile: jekyll ~> 4.3, just-the-docs ~> 0.8
+* Front matter: Every page needs layout: default, title:, nav_order:, optional parent: for hierarchy
+* Custom SCSS: docs/_sass/custom/custom.scss for overrides
+* Mermaid Styling Convention
+    * Mermaid diagrams use dark fill colors (RGB channels ≤ 0x90) with a paper-like background:
+
+    * Paper background: #d5d0c8 on .mermaid, pre.mermaid, .language-mermaid
+    * Node fills: Use RGB values where each channel ≤ 0x90 (e.g., #2d5016, #1a3a5c, #6b2d5b, #8b4513)
+    * Text: #2c3e50 (dark gray) on .nodeLabel, .label
+    * Edges/arrows: #4a5568 with stroke-width: 2px
+    * Actor lines: #7a8a9a
+    * In Mermaid source, use style or classDef with dark fills:
+
+    * classDef dark fill:#2d5016,stroke:#1a3a1a,color:#e8e0d4
+    * classDef accent fill:#1a3a5c,stroke:#0d2137,color:#e8e0d4
