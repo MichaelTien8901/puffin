@@ -11,4 +11,4 @@ Learn to source and evaluate alternative data — web scraping, earnings calls, 
 
 ## Chapters
 
-1. [Alternative Data Sources](01-alternative-data.md) - Web scraping, earnings analysis, and signal evaluation
+1. [Alternative Data Sources](01-alternative-data) - Web scraping, earnings analysis, and signal evaluation

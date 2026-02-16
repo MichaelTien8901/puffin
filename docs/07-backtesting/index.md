@@ -11,4 +11,4 @@ Build an event-driven backtesting engine to validate strategies against historic
 
 ## Chapters
 
-1. [Backtesting](01-backtesting.md) — Event-driven backtesting engine, slippage and commission models, walk-forward analysis
+1. [Backtesting](01-backtesting) — Event-driven backtesting engine, slippage and commission models, walk-forward analysis

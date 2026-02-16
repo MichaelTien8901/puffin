@@ -11,4 +11,4 @@ Leverage LLMs for sentiment analysis, news-driven signals, and AI agent portfoli
 
 ## Chapters
 
-1. [AI-Assisted Trading](01-ai-assisted-trading.md) - LLM provider abstraction, Claude/OpenAI integration, sentiment analysis, news-driven signals, AI agent portfolio management, market report generation
+1. [AI-Assisted Trading](01-ai-assisted-trading) - LLM provider abstraction, Claude/OpenAI integration, sentiment analysis, news-driven signals, AI agent portfolio management, market report generation

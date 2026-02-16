@@ -11,4 +11,4 @@ Apply PCA, clustering, and eigenportfolios for data-driven risk factors and asse
 
 ## Chapters
 
-1. [Unsupervised Learning](01-unsupervised-learning.md) - PCA, eigenportfolios, clustering algorithms, and data-driven risk factors
+1. [Unsupervised Learning](01-unsupervised-learning) - PCA, eigenportfolios, clustering algorithms, and data-driven risk factors

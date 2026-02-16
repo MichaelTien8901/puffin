@@ -11,4 +11,4 @@ Train word2vec, GloVe, and doc2vec embeddings on financial text. Use BERT for tr
 
 ## Chapters
 
-1. [Word Embeddings](01-word-embeddings.md) - Learn word2vec, GloVe, doc2vec, SEC filing analysis, and BERT/FinBERT for financial text.
+1. [Word Embeddings](01-word-embeddings) - Learn word2vec, GloVe, doc2vec, SEC filing analysis, and BERT/FinBERT for financial text.

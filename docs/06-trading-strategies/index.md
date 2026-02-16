@@ -11,5 +11,5 @@ Implement classical trading strategies — momentum, mean reversion, statistical
 
 ## Chapters
 
-1. [Trading Strategies](01-trading-strategies.md) — Strategy interface, momentum, mean reversion, pairs trading, and market making
-2. [Putting It Together](02-putting-it-together.md) — End-to-end system architecture, multi-strategy portfolios, and live trading integration
+1. [Trading Strategies](01-trading-strategies) — Strategy interface, momentum, mean reversion, pairs trading, and market making
+2. [Putting It Together](02-putting-it-together) — End-to-end system architecture, multi-strategy portfolios, and live trading integration

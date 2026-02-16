@@ -11,4 +11,4 @@ Research and engineer alpha factors — momentum, value, volatility, and quality
 
 ## Chapters
 
-1. [Alpha Factor Research](01-alpha-factors.md) - Compute, evaluate, and combine momentum, value, volatility, and quality factors with TA-Lib integration, Kalman filters, wavelets, and Alphalens evaluation.
+1. [Alpha Factor Research](01-alpha-factors) - Compute, evaluate, and combine momentum, value, volatility, and quality factors with TA-Lib integration, Kalman filters, wavelets, and Alphalens evaluation.

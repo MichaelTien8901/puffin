@@ -58,3 +58,79 @@ pre.mermaid {
   stroke: #4a5568 !important;
   stroke-width: 2px !important;
 }
+
+// Prev/Next navigation
+.prev-next-nav {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #404040;
+}
+
+.prev-next-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.prev-next-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #404040;
+  border-radius: 6px;
+  text-decoration: none !important;
+  max-width: 48%;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: #7253ed;
+  }
+}
+
+.next-link {
+  margin-left: auto;
+  text-align: right;
+}
+
+.prev-next-arrow {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.prev-next-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.prev-next-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.prev-next-title {
+  font-weight: 500;
+}
+
+.prev-next-spacer {
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .prev-next-container {
+    flex-direction: column;
+  }
+
+  .prev-next-link {
+    max-width: 100%;
+  }
+}
+
+// Mobile: horizontal scroll instead of shrinking
+@media (max-width: 600px) {
+  .mermaid {
+    overflow-x: auto;
+    min-width: 600px;
+  }
+}

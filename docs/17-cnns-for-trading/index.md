@@ -19,7 +19,7 @@ Convolutional Neural Networks (CNNs) are powerful deep learning models that exce
 
 ## Chapters
 
-1. [CNNs for Trading](01-cnns-trading.md) - Comprehensive guide to using CNNs in algorithmic trading, including practical implementations and trading strategies
+1. [CNNs for Trading](01-cnns-trading) - Comprehensive guide to using CNNs in algorithmic trading, including practical implementations and trading strategies
 
 ## Key Topics Covered
 

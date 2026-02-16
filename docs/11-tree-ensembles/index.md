@@ -11,4 +11,4 @@ Build trading strategies with random forests, XGBoost, LightGBM, and CatBoost wi
 
 ## Chapters
 
-1. [Tree Ensembles for Trading](01-tree-ensembles.md) - Random forests, gradient boosting (XGBoost, LightGBM, CatBoost), SHAP interpretation, and long-short strategies
+1. [Tree Ensembles for Trading](01-tree-ensembles) - Random forests, gradient boosting (XGBoost, LightGBM, CatBoost), SHAP interpretation, and long-short strategies

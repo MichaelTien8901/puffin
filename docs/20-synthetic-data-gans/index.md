@@ -11,4 +11,4 @@ Generate synthetic financial time-series data using GANs and TimeGAN for data au
 
 ## Chapters
 
-1. [Synthetic Data with GANs](01-synthetic-data.md) — GAN architecture, TimeGAN, synthetic financial time series for data augmentation and stress testing
+1. [Synthetic Data with GANs](01-synthetic-data) — GAN architecture, TimeGAN, synthetic financial time series for data augmentation and stress testing

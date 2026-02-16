@@ -11,4 +11,4 @@ Build feedforward neural networks for trading with PyTorch and TensorFlow 2.
 
 ## Chapters
 
-1. [Deep Learning Fundamentals](01-deep-learning.md) - Neural network basics, PyTorch vs TensorFlow, feedforward networks, training techniques, and TensorBoard integration
+1. [Deep Learning Fundamentals](01-deep-learning) - Neural network basics, PyTorch vs TensorFlow, feedforward networks, training techniques, and TensorBoard integration

@@ -11,4 +11,4 @@ Build dashboards, trade logging, P&L tracking, and system health monitoring.
 
 ## Chapters
 
-1. [Monitoring & Analytics](01-monitoring.md) — Trade logging, P&L tracking, dashboards, and system health monitoring
+1. [Monitoring & Analytics](01-monitoring) — Trade logging, P&L tracking, dashboards, and system health monitoring

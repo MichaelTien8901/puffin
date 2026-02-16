@@ -11,4 +11,4 @@ Use RNNs and LSTMs for multivariate time-series prediction and text sentiment.
 
 ## Chapters
 
-1. [RNNs for Trading](01-rnns-trading.md) - RNN basics, LSTM, GRU, stacked architectures, multivariate prediction, and sentiment analysis with embeddings
+1. [RNNs for Trading](01-rnns-trading) - RNN basics, LSTM, GRU, stacked architectures, multivariate prediction, and sentiment analysis with embeddings

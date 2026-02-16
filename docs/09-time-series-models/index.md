@@ -11,4 +11,4 @@ Model financial time series with ARIMA, VAR, GARCH, and cointegration for volati
 
 ## Chapters
 
-1. [Time Series Models](01-time-series-models.md) - Stationarity testing, ARIMA, VAR, GARCH, cointegration, and pairs trading
+1. [Time Series Models](01-time-series-models) - Stationarity testing, ARIMA, VAR, GARCH, cointegration, and pairs trading

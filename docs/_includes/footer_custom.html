@@ -1,0 +1,58 @@
+{% comment %}
+  Prev/Next navigation for sibling pages under the same parent.
+  Works with Just the Docs' parent + nav_order front matter.
+{% endcomment %}
+
+{% if page.parent %}
+  {% assign siblings = site.pages
+    | where: "parent", page.parent
+    | sort: "nav_order" %}
+
+  {% if siblings.size > 1 %}
+    {% assign prev_page = nil %}
+    {% assign next_page = nil %}
+    {% assign found = false %}
+
+    {% for p in siblings %}
+      {% if found and next_page == nil %}
+        {% assign next_page = p %}
+      {% endif %}
+      {% if p.url == page.url %}
+        {% assign found = true %}
+      {% endif %}
+      {% unless found %}
+        {% assign prev_page = p %}
+      {% endunless %}
+    {% endfor %}
+
+    {% if prev_page or next_page %}
+      <nav class="prev-next-nav" aria-label="Page navigation">
+        <div class="prev-next-container">
+          {% if prev_page %}
+            <a href="{{ prev_page.url | relative_url }}" class="prev-next-link prev-link">
+              <span class="prev-next-arrow">&larr;</span>
+              <span class="prev-next-text">
+                <span class="prev-next-label">Previous</span>
+                <span class="prev-next-title">{{ prev_page.title }}</span>
+              </span>
+            </a>
+          {% else %}
+            <span class="prev-next-spacer"></span>
+          {% endif %}
+
+          {% if next_page %}
+            <a href="{{ next_page.url | relative_url }}" class="prev-next-link next-link">
+              <span class="prev-next-text">
+                <span class="prev-next-label">Next</span>
+                <span class="prev-next-title">{{ next_page.title }}</span>
+              </span>
+              <span class="prev-next-arrow">&rarr;</span>
+            </a>
+          {% else %}
+            <span class="prev-next-spacer"></span>
+          {% endif %}
+        </div>
+      </nav>
+    {% endif %}
+  {% endif %}
+{% endif %}

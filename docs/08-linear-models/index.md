@@ -11,4 +11,4 @@ Apply linear regression, ridge, lasso, and logistic regression to predict return
 
 ## Chapters
 
-1. [Linear Models for Trading](01-linear-models.md) - OLS, Ridge, Lasso, logistic regression, CAPM, Fama-French models, and Fama-MacBeth regression
+1. [Linear Models for Trading](01-linear-models) - OLS, Ridge, Lasso, logistic regression, CAPM, Fama-French models, and Fama-MacBeth regression

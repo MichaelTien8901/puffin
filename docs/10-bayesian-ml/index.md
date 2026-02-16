@@ -11,4 +11,4 @@ Use Bayesian methods with PyMC for dynamic Sharpe ratios, rolling regression, an
 
 ## Chapters
 
-1. [Bayesian Machine Learning](01-bayesian-ml.md) - Bayesian inference, PyMC basics, Bayesian linear regression, Sharpe ratios, pairs trading, and stochastic volatility
+1. [Bayesian Machine Learning](01-bayesian-ml) - Bayesian inference, PyMC basics, Bayesian linear regression, Sharpe ratios, pairs trading, and stochastic volatility

@@ -11,4 +11,4 @@ Connect to brokers for paper and live trading with order management and safety c
 
 ## Chapters
 
-1. [Live Trading](01-live-trading.md) - Broker abstraction, Alpaca setup, paper trading, order management, trading session handling, safety controls
+1. [Live Trading](01-live-trading) - Broker abstraction, Alpaca setup, paper trading, order management, trading session handling, safety controls

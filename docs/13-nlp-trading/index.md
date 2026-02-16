@@ -11,4 +11,4 @@ Process financial text with NLP — tokenization, TF-IDF, naive Bayes, and senti
 
 ## Chapters
 
-1. [NLP for Trading](01-nlp-trading.md) - Text preprocessing, vectorization, classification, and sentiment analysis
+1. [NLP for Trading](01-nlp-trading) - Text preprocessing, vectorization, classification, and sentiment analysis
