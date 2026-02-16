@@ -11,4 +11,4 @@ Implement position sizing, stop losses, and portfolio-level risk controls.
 
 ## Chapters
 
-Coming soon.
+1. [Risk Management](01-risk-management.md) — Position sizing, Kelly criterion, stop loss management, and portfolio-level risk controls

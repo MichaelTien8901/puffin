@@ -11,4 +11,4 @@ Extract nonlinear features with autoencoders — standard, denoising, variationa
 
 ## Chapters
 
-Coming soon.
+1. [Autoencoders](01-autoencoders.md) — Standard, denoising, variational, and conditional autoencoders for feature extraction and anomaly detection

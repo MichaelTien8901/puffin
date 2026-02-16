@@ -11,4 +11,4 @@ Build the data infrastructure for your trading system — fetching, caching, and
 
 ## Chapters
 
-Coming soon.
+1. [Data Pipeline](01-data-pipeline.md) — DataProvider interface, yfinance integration, SQLite caching, and Alpaca streaming

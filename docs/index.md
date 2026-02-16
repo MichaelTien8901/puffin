@@ -12,6 +12,8 @@ A comprehensive, hands-on guide to building algorithmic trading systems — from
 {: .note }
 This guide is designed to be followed sequentially. Each part builds on concepts and code from previous parts.
 
+[Start Learning — Part 1: Market Foundations](01-market-foundations/){: .btn .btn-green .fs-5 .mb-4 .mb-md-0 .mr-2 }
+
 ## Learning Path
 
 ```mermaid
@@ -66,6 +68,32 @@ graph TD
     style W fill:#7a2020,stroke:#4a1010,color:#e8e0d4
     style X fill:#7a2020,stroke:#4a1010,color:#e8e0d4
     style Y fill:#7a2020,stroke:#4a1010,color:#e8e0d4
+
+    click A "01-market-foundations/"
+    click B "02-data-pipeline/"
+    click C "03-alternative-data/"
+    click D "04-alpha-factors/"
+    click E "05-portfolio-optimization/"
+    click F "06-trading-strategies/"
+    click G "07-backtesting/"
+    click H "08-linear-models/"
+    click I "09-time-series-models/"
+    click J "10-bayesian-ml/"
+    click K "11-tree-ensembles/"
+    click L "12-unsupervised-learning/"
+    click M "13-nlp-trading/"
+    click N "14-topic-modeling/"
+    click O "15-word-embeddings/"
+    click P "16-deep-learning/"
+    click Q "17-cnns-for-trading/"
+    click R "18-rnns-for-trading/"
+    click S "19-autoencoders/"
+    click T "20-synthetic-data-gans/"
+    click U "21-deep-rl/"
+    click V "22-ai-assisted-trading/"
+    click W "23-live-trading/"
+    click X "24-risk-management/"
+    click Y "25-monitoring-analytics/"
 ```
 
 ## Parts

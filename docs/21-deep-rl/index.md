@@ -11,4 +11,4 @@ Build RL trading agents using DQN, DDQN, and PPO with custom Gymnasium environme
 
 ## Chapters
 
-Coming soon.
+1. [Deep Reinforcement Learning](01-deep-rl.md) — Q-learning, DQN, custom Gymnasium environments, and RL trading agents

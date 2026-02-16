@@ -11,4 +11,4 @@ Optimize portfolio construction using mean-variance, risk parity, and hierarchic
 
 ## Chapters
 
-Coming soon.
+1. [Portfolio Optimization](01-portfolio-optimization.md) — Mean-variance, risk parity, HRP, rebalancing strategies, and performance tearsheets
