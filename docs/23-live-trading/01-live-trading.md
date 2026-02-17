@@ -891,6 +891,9 @@ Now that you understand live trading, you're ready to add risk management:
 
 - [Part 24: Risk Management](../../24-risk-management/) - Position sizing, stop losses, portfolio controls
 
+{: .tip }
+For a deep dive into WebSocket streaming, tick-to-bar aggregation, and order book depth, see [Part 26: Real-Time Market Data]({{ site.baseurl }}/26-realtime-data/).
+
 ## Further Reading
 
 - [Alpaca API Documentation](https://alpaca.markets/docs/)

@@ -46,3 +46,30 @@ class DataProvider(ABC):
             callback: Function called with each update (symbol, price, volume, timestamp).
         """
         raise NotImplementedError(f"{self.__class__.__name__} does not support real-time streaming")
+
+    def stream_trades(self, symbols: list[str], callback):
+        """Stream real-time trade ticks.
+
+        Args:
+            symbols: Tickers to subscribe to.
+            callback: Function called with (symbol, price, volume, timestamp).
+        """
+        raise NotImplementedError(f"{self.__class__.__name__} does not support trade streaming")
+
+    def stream_quotes(self, symbols: list[str], callback):
+        """Stream real-time quote updates (L1).
+
+        Args:
+            symbols: Tickers to subscribe to.
+            callback: Function called with (symbol, bid, ask, bid_size, ask_size, timestamp).
+        """
+        raise NotImplementedError(f"{self.__class__.__name__} does not support quote streaming")
+
+    def stream_orderbook(self, symbols: list[str], callback):
+        """Stream order book depth updates (L2).
+
+        Args:
+            symbols: Tickers to subscribe to.
+            callback: Function called with (symbol, side, price, size, timestamp).
+        """
+        raise NotImplementedError(f"{self.__class__.__name__} does not support order book streaming")

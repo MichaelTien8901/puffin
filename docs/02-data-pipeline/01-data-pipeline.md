@@ -136,6 +136,9 @@ provider.stream_realtime(["AAPL", "MSFT"], callback=on_update)
 - Preprocessing handles missing values, outliers, and data validation
 - `AlpacaProvider` adds real-time streaming for live trading
 
+{: .tip }
+For a deep dive into real-time streaming — WebSocket protocols, tick-to-bar aggregation, order book depth, and auto-reconnection — see [Part 26: Real-Time Market Data]({{ site.baseurl }}/26-realtime-data/).
+
 ## Next Steps
 
 With data flowing, we're ready to build **trading strategies** in Part 3.
