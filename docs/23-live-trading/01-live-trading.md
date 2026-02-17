@@ -105,6 +105,90 @@ broker = AlpacaBroker(
 )
 ```
 
+## Setting Up Interactive Brokers (IBKR)
+
+Interactive Brokers offers professional-grade execution, global market access, and low commissions. Puffin supports IBKR via the `ib_async` library which connects to TWS (Trader Workstation) or IB Gateway.
+
+### Prerequisites
+
+1. **Install IB Gateway or TWS** from [interactivebrokers.com](https://www.interactivebrokers.com/en/trading/tws.php)
+2. **Enable API connections** in TWS/Gateway: File > Global Configuration > API > Settings:
+   - Check "Enable ActiveX and Socket Clients"
+   - Check "Allow connections from localhost only" (recommended)
+   - Note the socket port (default: 7497 for TWS paper, 4002 for Gateway paper)
+
+### Installation
+
+```bash
+pip install puffin[ibkr]
+```
+
+### Paper Trading Setup
+
+```python
+from puffin.broker import IBKRBroker
+
+# Paper trading via IB Gateway (default)
+broker = IBKRBroker(
+    host="127.0.0.1",
+    port=4002,       # Gateway paper trading port
+    client_id=1,
+    paper=True,
+)
+
+# Or via TWS
+broker = IBKRBroker(port=7497)  # TWS paper trading port
+
+# Check account
+account = broker.get_account()
+print(f"Equity: ${account.equity:,.2f}")
+```
+
+### Live Trading
+
+```python
+# IB Gateway live
+broker = IBKRBroker(port=4001, paper=False)
+
+# TWS live
+broker = IBKRBroker(port=7496, paper=False)
+```
+
+### Environment Variables
+
+```bash
+# .env file
+IBKR_HOST=127.0.0.1
+IBKR_PORT=4002
+IBKR_CLIENT_ID=1
+```
+
+```python
+import os
+from puffin.broker import IBKRBroker
+
+broker = IBKRBroker(
+    host=os.environ.get("IBKR_HOST", "127.0.0.1"),
+    port=int(os.environ.get("IBKR_PORT", "4002")),
+    client_id=int(os.environ.get("IBKR_CLIENT_ID", "1")),
+)
+```
+
+### Common Ports Reference
+
+| Application   | Paper Trading | Live Trading |
+|--------------|:------------:|:------------:|
+| IB Gateway   | 4002         | 4001         |
+| TWS          | 7497         | 7496         |
+
+### Disconnecting
+
+Always disconnect when done to free the client ID slot:
+
+```python
+broker.disconnect()
+```
+
 ## Placing Orders
 
 ### Order Types

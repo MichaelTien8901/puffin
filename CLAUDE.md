@@ -78,6 +78,12 @@ puffin/
 └── openspec/               # OpenSpec change management
 ```
 
+## Development Environment
+- All test and build tools run inside Docker (no local Python/pytest)
+- Build image: `docker build -t puffin-test .`
+- Run tests: `docker run --rm puffin-test python -m pytest tests/`
+- Run specific tests: `docker run --rm puffin-test python -m pytest tests/broker/test_ibkr.py -v`
+
 ## Conventions
 - Use `pdftotext` for reading the reference PDF, not the Read tool
 - Tutorial docs use Jekyll + Just the Docs with folder naming: `NN-topic-name/`
