@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "Chapter 3: Order Book Streaming"
+title: "Order Book Streaming"
 parent: "Part 26: Real-Time Market Data"
 nav_order: 3
 ---
 
-# Chapter 3: Order Book Streaming
+# Order Book Streaming
 
 The order book is the most granular view of supply and demand for a security. Streaming order book data lets you see not just the best bid/ask, but the full depth of resting orders at every price level.
 

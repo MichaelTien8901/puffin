@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "Chapter 1: WebSocket Fundamentals"
+title: "WebSocket Fundamentals"
 parent: "Part 26: Real-Time Market Data"
 nav_order: 1
 ---
 
-# Chapter 1: WebSocket Fundamentals
+# WebSocket Fundamentals
 
 Before streaming live market data, you need to understand the protocol that makes it possible. WebSockets provide full-duplex communication over a single TCP connection — the backbone of real-time market data feeds.
 
@@ -200,4 +200,4 @@ Interactive Brokers doesn't use WebSockets — it uses a proprietary TCP socket 
 
 ## Next Steps
 
-Now that you understand the protocol, let's build a real-time streaming engine that handles all of this for you — in [Chapter 2: Real-Time Engine](02-realtime-engine).
+Now that you understand the protocol, let's build a real-time streaming engine that handles all of this for you — in [Real-Time Engine](02-realtime-engine).

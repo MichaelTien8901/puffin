@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "Chapter 3: Broker Comparison"
+title: "Broker Comparison"
 parent: "Part 23: Live Trading"
 nav_order: 3
 ---
 
-# Chapter 3: Alpaca vs Interactive Brokers
+# Alpaca vs Interactive Brokers
 
 ## Feature Comparison
 
@@ -128,4 +128,4 @@ positions = broker.get_positions()
 account = broker.get_account()
 ```
 
-For IBKR-specific features (options, futures, forex), use `submit_order_with_spec()` with a `ContractSpec` — see [Chapter 2: IBKR Advanced Trading](02-ibkr-advanced).
+For IBKR-specific features (options, futures, forex), use `submit_order_with_spec()` with a `ContractSpec` — see [IBKR Advanced Trading](02-ibkr-advanced).

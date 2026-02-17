@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Chapter 6: Market Microstructure"
+title: "Market Microstructure"
 parent: "Part 1: Market Foundations"
 nav_order: 7
 ---

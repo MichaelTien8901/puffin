@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "Chapter 1: Live Trading"
+title: "Live Trading"
 parent: "Part 23: Live Trading"
 nav_order: 1
 ---
 
-# Chapter 1: Live Trading
+# Live Trading
 
 ## Overview
 

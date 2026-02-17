@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "Chapter 2: Putting It All Together"
+title: "Putting It All Together"
 parent: "Part 6: Trading Strategies"
 nav_order: 3
 ---
 
-# Chapter 2: Putting It All Together
+# Putting It All Together
 
 This chapter demonstrates how to combine all the Puffin modules into complete, production-ready trading systems. We'll walk through integrating data pipelines, strategies, risk management, backtesting, and monitoring.
 

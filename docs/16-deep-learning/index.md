@@ -571,10 +571,10 @@ The `puffin.deep` module provides all these tools with both PyTorch and TensorFl
 
 ## Next Steps
 
-- **Chapter 2: CNNs for Trading**: Apply convolutional networks to time series
-- **Chapter 3: RNNs and LSTMs**: Model sequential dependencies in market data
-- **Chapter 4: Autoencoders**: Dimensionality reduction and anomaly detection
-- **Chapter 5: GANs**: Generate synthetic market data for training
+- **CNNs for Trading**: Apply convolutional networks to time series
+- **RNNs and LSTMs**: Model sequential dependencies in market data
+- **Autoencoders**: Dimensionality reduction and anomaly detection
+- **GANs**: Generate synthetic market data for training
 
 ## References
 

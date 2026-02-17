@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "Chapter 2: IBKR Advanced Trading"
+title: "IBKR Advanced Trading"
 parent: "Part 23: Live Trading"
 nav_order: 2
 ---
 
-# Chapter 2: IBKR Advanced Trading
+# IBKR Advanced Trading
 
 ## Overview
 

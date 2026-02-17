@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "Chapter 2: Real-Time Engine"
+title: "Real-Time Engine"
 parent: "Part 26: Real-Time Market Data"
 nav_order: 2
 ---
 
-# Chapter 2: Real-Time Engine
+# Real-Time Engine
 
 The `RealtimeEngine` provides a unified streaming interface on top of any `DataProvider`. It handles callback dispatch, tick-to-bar aggregation, and auto-reconnection so you can focus on processing data.
 
@@ -215,4 +215,4 @@ Buffering before writing avoids hammering the database with individual inserts. 
 
 ## Next Steps
 
-For order book streaming and depth analysis, continue to [Chapter 3: Order Book Streaming](03-orderbook-streaming).
+For order book streaming and depth analysis, continue to [Order Book Streaming](03-orderbook-streaming).
