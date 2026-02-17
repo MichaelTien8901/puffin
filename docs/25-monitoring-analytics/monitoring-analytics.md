@@ -2,6 +2,7 @@
 layout: default
 title: "Part 25: Monitoring & Analytics"
 nav_order: 26
+permalink: /25-monitoring-analytics/
 ---
 
 # Monitoring & Analytics

@@ -2,6 +2,7 @@
 layout: default
 title: "Part 13: NLP for Trading"
 nav_order: 14
+permalink: /13-nlp-trading/
 ---
 
 # NLP for Trading

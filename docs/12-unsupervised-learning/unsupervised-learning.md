@@ -2,6 +2,7 @@
 layout: default
 title: "Part 12: Unsupervised Learning"
 nav_order: 13
+permalink: /12-unsupervised-learning/
 ---
 
 # Unsupervised Learning for Trading

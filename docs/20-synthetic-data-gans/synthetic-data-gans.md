@@ -2,6 +2,7 @@
 layout: default
 title: "Part 20: Synthetic Data with GANs"
 nav_order: 21
+permalink: /20-synthetic-data-gans/
 ---
 
 # Synthetic Data with GANs

@@ -2,6 +2,7 @@
 layout: default
 title: "Part 19: Autoencoders"
 nav_order: 20
+permalink: /19-autoencoders/
 ---
 
 # Autoencoders for Trading

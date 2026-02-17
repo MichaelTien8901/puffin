@@ -2,6 +2,7 @@
 layout: default
 title: "Part 15: Word Embeddings"
 nav_order: 16
+permalink: /15-word-embeddings/
 ---
 
 # Word Embeddings

@@ -2,6 +2,7 @@
 layout: default
 title: "Part 5: Portfolio Optimization"
 nav_order: 6
+permalink: /05-portfolio-optimization/
 ---
 
 # Portfolio Optimization

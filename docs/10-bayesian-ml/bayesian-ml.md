@@ -2,6 +2,7 @@
 layout: default
 title: "Part 10: Bayesian ML"
 nav_order: 11
+permalink: /10-bayesian-ml/
 ---
 
 # Bayesian Machine Learning for Trading

@@ -2,6 +2,7 @@
 layout: default
 title: "Part 22: AI-Assisted Trading"
 nav_order: 23
+permalink: /22-ai-assisted-trading/
 ---
 
 # AI-Assisted Trading

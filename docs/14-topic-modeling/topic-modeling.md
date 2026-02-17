@@ -2,6 +2,7 @@
 layout: default
 title: "Part 14: Topic Modeling"
 nav_order: 15
+permalink: /14-topic-modeling/
 ---
 
 # Topic Modeling for Financial Text

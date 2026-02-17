@@ -2,6 +2,7 @@
 layout: default
 title: "Part 3: Alternative Data"
 nav_order: 4
+permalink: /03-alternative-data/
 ---
 
 # Alternative Data Sources

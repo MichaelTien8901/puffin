@@ -2,6 +2,7 @@
 layout: default
 title: "Part 9: Time Series Models"
 nav_order: 10
+permalink: /09-time-series-models/
 ---
 
 # Time Series Models for Trading

@@ -2,6 +2,7 @@
 layout: default
 title: "Part 24: Risk Management"
 nav_order: 25
+permalink: /24-risk-management/
 ---
 
 # Risk Management

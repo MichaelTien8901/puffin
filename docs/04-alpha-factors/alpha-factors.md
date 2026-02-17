@@ -2,6 +2,7 @@
 layout: default
 title: "Part 4: Alpha Factors"
 nav_order: 5
+permalink: /04-alpha-factors/
 ---
 
 # Alpha Factor Research

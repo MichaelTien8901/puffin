@@ -2,6 +2,7 @@
 layout: default
 title: "Part 21: Deep Reinforcement Learning"
 nav_order: 22
+permalink: /21-deep-rl/
 ---
 
 # Deep Reinforcement Learning for Trading

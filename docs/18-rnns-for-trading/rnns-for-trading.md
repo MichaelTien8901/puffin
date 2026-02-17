@@ -2,6 +2,7 @@
 layout: default
 title: "Part 18: RNNs for Trading"
 nav_order: 19
+permalink: /18-rnns-for-trading/
 ---
 
 # RNNs for Trading

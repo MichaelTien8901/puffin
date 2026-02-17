@@ -2,6 +2,7 @@
 layout: default
 title: "Part 16: Deep Learning Fundamentals"
 nav_order: 17
+permalink: /16-deep-learning/
 ---
 
 # Deep Learning Fundamentals for Trading

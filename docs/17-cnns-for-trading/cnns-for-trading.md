@@ -2,6 +2,7 @@
 layout: default
 title: "Part 17: CNNs for Trading"
 nav_order: 18
+permalink: /17-cnns-for-trading/
 ---
 
 # CNNs for Trading

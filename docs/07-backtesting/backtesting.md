@@ -2,6 +2,7 @@
 layout: default
 title: "Part 7: Backtesting"
 nav_order: 8
+permalink: /07-backtesting/
 ---
 
 # Backtesting Engine

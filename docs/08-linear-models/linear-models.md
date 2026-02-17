@@ -2,6 +2,7 @@
 layout: default
 title: "Part 8: Linear Models"
 nav_order: 9
+permalink: /08-linear-models/
 ---
 
 # Linear Models for Trading

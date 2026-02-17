@@ -2,6 +2,7 @@
 layout: default
 title: "Part 2: Data Pipeline"
 nav_order: 3
+permalink: /02-data-pipeline/
 ---
 
 # Building the Data Pipeline

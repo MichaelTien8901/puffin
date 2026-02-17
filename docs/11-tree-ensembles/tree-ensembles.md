@@ -2,6 +2,7 @@
 layout: default
 title: "Part 11: Tree Ensembles"
 nav_order: 12
+permalink: /11-tree-ensembles/
 ---
 
 # Tree Ensembles for Trading
