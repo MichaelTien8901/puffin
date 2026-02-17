@@ -143,21 +143,20 @@ class IBKRBroker(Broker):
     def get_positions(self) -> dict[str, Position]:
         try:
             ib = self._connect()
-            ib_positions = ib.positions()
+            # Use portfolio() instead of positions() — it includes marketValue and unrealizedPNL
+            portfolio_items = ib.portfolio()
 
             positions = {}
-            for pos in ib_positions:
-                symbol = pos.contract.symbol
-                qty = int(pos.position)
-                avg_price = float(pos.avgCost)
-                # avgCost from IBKR is per-share cost basis
-                market_value = qty * avg_price  # approximate; no live price without market data
+            for item in portfolio_items:
+                symbol = item.contract.symbol
+                qty = int(item.position)
+                avg_price = float(item.averageCost)
                 positions[symbol] = Position(
                     symbol=symbol,
                     qty=qty,
                     avg_price=avg_price,
-                    market_value=market_value,
-                    unrealized_pnl=float(pos.unrealizedPNL) if hasattr(pos, "unrealizedPNL") else 0.0,
+                    market_value=float(item.marketValue),
+                    unrealized_pnl=float(item.unrealizedPNL),
                     cost_basis=abs(qty) * avg_price,
                     last_update=datetime.now(),
                 )
@@ -250,10 +249,18 @@ class IBKRBroker(Broker):
             limit_price=float(order.lmtPrice) if order.lmtPrice else None,
             stop_price=float(order.auxPrice) if order.auxPrice else None,
             avg_fill_price=float(status.avgFillPrice) if status.avgFillPrice else None,
-            submitted_at=None,  # IBKR doesn't expose submission time directly
-            filled_at=None,
-            canceled_at=None,
+            submitted_at=self._find_log_time(trade, ("PendingSubmit", "PreSubmitted", "Submitted")),
+            filled_at=self._find_log_time(trade, ("Filled",)),
+            canceled_at=self._find_log_time(trade, ("Cancelled",)),
         )
+
+    @staticmethod
+    def _find_log_time(trade, statuses: tuple[str, ...]) -> datetime | None:
+        """Find the earliest timestamp in trade.log matching any of the given statuses."""
+        for entry in trade.log:
+            if entry.status in statuses:
+                return entry.time
+        return None
 
     def get_all_orders(
         self, status: str | None = None, limit: int = 100
