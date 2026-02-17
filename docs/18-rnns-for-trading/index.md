@@ -4,7 +4,7 @@ title: "Part 18: RNNs for Trading"
 nav_order: 19
 ---
 
-# Chapter 1: RNNs for Trading
+# RNNs for Trading
 
 Recurrent Neural Networks (RNNs) are specifically designed to handle sequential data, making them particularly well-suited for time series prediction in algorithmic trading. This chapter explores RNN architectures, their variants (LSTM and GRU), and practical applications in trading.
 

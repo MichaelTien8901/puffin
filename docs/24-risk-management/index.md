@@ -4,7 +4,7 @@ title: "Part 24: Risk Management"
 nav_order: 25
 ---
 
-# Chapter 1: Risk Management
+# Risk Management
 
 Risk management is critical for long-term trading success. The Puffin framework provides comprehensive tools for position sizing, stop loss management, and portfolio-level risk controls.
 

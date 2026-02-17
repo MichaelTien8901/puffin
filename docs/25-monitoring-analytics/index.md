@@ -4,7 +4,7 @@ title: "Part 25: Monitoring & Analytics"
 nav_order: 26
 ---
 
-# Chapter 1: Monitoring & Analytics
+# Monitoring & Analytics
 
 Comprehensive monitoring and analytics are essential for understanding strategy performance and making informed trading decisions. The Puffin framework provides tools for trade logging, P&L tracking, benchmark comparison, and system health monitoring.
 

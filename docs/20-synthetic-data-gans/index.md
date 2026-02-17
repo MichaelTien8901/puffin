@@ -4,7 +4,7 @@ title: "Part 20: Synthetic Data with GANs"
 nav_order: 21
 ---
 
-# Chapter 1: Synthetic Data with GANs
+# Synthetic Data with GANs
 
 Generative Adversarial Networks (GANs) generate realistic synthetic data by training two neural networks in competition. In trading, GANs create synthetic market data for backtesting, data augmentation, and stress testing.
 

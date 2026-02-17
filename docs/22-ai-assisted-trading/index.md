@@ -4,7 +4,7 @@ title: "Part 22: AI-Assisted Trading"
 nav_order: 23
 ---
 
-# Chapter 1: AI-Assisted Trading
+# AI-Assisted Trading
 
 ## Overview
 

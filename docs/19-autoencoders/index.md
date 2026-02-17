@@ -4,7 +4,7 @@ title: "Part 19: Autoencoders"
 nav_order: 20
 ---
 
-# Chapter 1: Autoencoders for Trading
+# Autoencoders for Trading
 
 Autoencoders are neural networks designed to learn efficient representations of data through unsupervised learning. In trading, they compress high-dimensional market data into meaningful features and detect anomalies in market behavior.
 

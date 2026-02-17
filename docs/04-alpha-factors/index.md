@@ -4,7 +4,7 @@ title: "Part 4: Alpha Factors"
 nav_order: 5
 ---
 
-# Chapter 1: Alpha Factor Research
+# Alpha Factor Research
 
 Alpha factors are the building blocks of quantitative trading strategies. They are signals that predict future asset returns and form the basis of systematic investment decisions. In this chapter, we'll explore how to compute, evaluate, and combine various types of alpha factors using the Puffin framework.
 

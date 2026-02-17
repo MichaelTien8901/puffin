@@ -4,7 +4,7 @@ title: "Part 3: Alternative Data"
 nav_order: 4
 ---
 
-# Chapter 1: Alternative Data Sources
+# Alternative Data Sources
 
 ## Overview
 

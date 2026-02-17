@@ -4,7 +4,7 @@ title: "Part 15: Word Embeddings"
 nav_order: 16
 ---
 
-# Chapter 1: Word Embeddings
+# Word Embeddings
 
 Word embeddings are dense vector representations of words that capture semantic relationships and contextual meaning. Unlike traditional one-hot encodings, embeddings place semantically similar words close together in a continuous vector space, making them powerful tools for financial text analysis.
 

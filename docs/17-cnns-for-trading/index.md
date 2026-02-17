@@ -4,7 +4,7 @@ title: "Part 17: CNNs for Trading"
 nav_order: 18
 ---
 
-# Chapter 1: CNNs for Trading
+# CNNs for Trading
 
 Convolutional Neural Networks (CNNs) are powerful tools originally designed for computer vision tasks. However, their ability to detect spatial and temporal patterns makes them surprisingly effective for financial time series analysis. In this chapter, we explore three approaches to using CNNs in algorithmic trading.
 

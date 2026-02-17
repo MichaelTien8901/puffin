@@ -4,7 +4,7 @@ title: "Part 11: Tree Ensembles"
 nav_order: 12
 ---
 
-# Chapter 1: Tree Ensembles for Trading
+# Tree Ensembles for Trading
 
 Tree ensemble methods combine multiple decision trees to create powerful, robust predictive models. These methods are particularly effective for trading applications due to their ability to capture non-linear patterns, handle mixed data types, and provide interpretable feature importances.
 

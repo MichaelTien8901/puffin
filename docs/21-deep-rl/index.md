@@ -4,7 +4,7 @@ title: "Part 21: Deep Reinforcement Learning"
 nav_order: 22
 ---
 
-# Chapter 1: Deep Reinforcement Learning for Trading
+# Deep Reinforcement Learning for Trading
 
 Deep Reinforcement Learning (RL) offers a powerful framework for developing adaptive trading strategies that learn from market interactions. This chapter covers the implementation of RL agents for algorithmic trading.
 

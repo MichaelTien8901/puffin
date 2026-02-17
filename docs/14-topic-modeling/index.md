@@ -4,7 +4,7 @@ title: "Part 14: Topic Modeling"
 nav_order: 15
 ---
 
-# Chapter 1: Topic Modeling for Financial Text
+# Topic Modeling for Financial Text
 
 Topic modeling is an unsupervised machine learning technique that discovers latent themes in large collections of documents. In algorithmic trading, topic modeling helps analyze earnings calls, financial news, and analyst reports to identify key themes and track how they evolve over time.
 

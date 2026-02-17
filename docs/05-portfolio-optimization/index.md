@@ -4,7 +4,7 @@ title: "Part 5: Portfolio Optimization"
 nav_order: 6
 ---
 
-# Chapter 1: Portfolio Optimization
+# Portfolio Optimization
 
 ## Introduction
 

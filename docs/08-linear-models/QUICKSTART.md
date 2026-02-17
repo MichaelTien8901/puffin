@@ -291,7 +291,7 @@ python examples/linear_models_demo.py
 
 ## Getting Help
 
-- **Documentation**: See `docs/08-linear-models/01-linear-models.md` for complete tutorial
+- **Documentation**: See `docs/08-linear-models/index.md` for complete tutorial
 - **Examples**: Check `examples/linear_models_demo.py` for working code
 - **Tests**: Review `tests/models/test_*.py` for usage patterns
 

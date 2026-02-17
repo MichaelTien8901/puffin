@@ -4,7 +4,7 @@ title: "Part 9: Time Series Models"
 nav_order: 10
 ---
 
-# Chapter 1: Time Series Models for Trading
+# Time Series Models for Trading
 
 Time series models are essential tools for analyzing and forecasting financial data. This chapter covers key time series techniques for algorithmic trading, including stationarity testing, ARIMA, VAR, GARCH, cointegration, and pairs trading strategies.
 
