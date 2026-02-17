@@ -65,7 +65,10 @@ dev = [
     "ruff>=0.1",
     "mypy>=1.5",
 ]
-all = ["puffin[ml,nlp,ai,dashboard,dev]"]
+ibkr = [
+    "ib_async>=1.0",
+]
+all = ["puffin[ml,nlp,ai,dashboard,dev,ibkr]"]
 
 [tool.setuptools.packages.find]
 include = ["puffin*"]
