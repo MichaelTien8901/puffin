@@ -468,7 +468,7 @@ See the `examples/` directory for complete, runnable implementations:
 
 ## Further Reading
 
-- [Risk Management](/docs/24-risk-management/01-risk-management.md)
-- [Monitoring & Analytics](/docs/25-monitoring-analytics/01-monitoring.md)
-- [Live Trading](/docs/23-live-trading/01-live-trading.md)
-- [Backtesting](/docs/07-backtesting/01-backtesting.md)
+- [Risk Management](/docs/24-risk-management/)
+- [Monitoring & Analytics](/docs/25-monitoring-analytics/)
+- [Live Trading](/docs/23-live-trading/01-live-trading)
+- [Backtesting](/docs/07-backtesting/)

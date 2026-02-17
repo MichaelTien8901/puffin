@@ -197,5 +197,5 @@ def plot_depth(book: OrderBook, title: str = "Order Book Depth"):
 
 ## Further Reading
 
-- The [Data Pipeline]({{ site.baseurl }}/02-data-pipeline/01-data-pipeline) chapter covers the `DataProvider` interface and historical data fetching.
+- The [Data Pipeline]({{ site.baseurl }}/02-data-pipeline/) chapter covers the `DataProvider` interface and historical data fetching.
 - The [Live Trading]({{ site.baseurl }}/23-live-trading/01-live-trading) chapter covers using real-time data to execute trades with Alpaca and IBKR.
