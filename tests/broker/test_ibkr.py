@@ -18,7 +18,7 @@ from puffin.broker import (
     OrderRejectedError,
     InsufficientFundsError,
 )
-from puffin.broker.ibkr import IBKRBroker
+from puffin.broker.ibkr import IBKRBroker, ContractSpec
 
 
 # --- Mock helpers ---
@@ -35,6 +35,7 @@ def _mock_ib():
     ib.openTrades = Mock(return_value=[])
     ib.trades = Mock(return_value=[])
     ib.positions = Mock(return_value=[])
+    ib.portfolio = Mock(return_value=[])
     ib.accountSummary = Mock(return_value=[])
     ib.disconnect = Mock()
     return ib
@@ -72,18 +73,22 @@ def _mock_trade(
     trade.orderStatus.filled = filled
     trade.orderStatus.avgFillPrice = avg_fill_price
 
+    # trade.log must be iterable for _find_log_time
+    trade.log = []
+
     return trade
 
 
-def _mock_position(symbol="AAPL", qty=100, avg_cost=150.0):
-    """Create a mock ib_async position."""
-    pos = Mock()
-    pos.contract = Mock()
-    pos.contract.symbol = symbol
-    pos.position = qty
-    pos.avgCost = avg_cost
-    pos.unrealizedPNL = 50.0
-    return pos
+def _mock_portfolio_item(symbol="AAPL", qty=100, avg_cost=150.0):
+    """Create a mock ib_async portfolio item."""
+    item = Mock()
+    item.contract = Mock()
+    item.contract.symbol = symbol
+    item.position = qty
+    item.averageCost = avg_cost
+    item.marketValue = abs(qty) * avg_cost + 50.0
+    item.unrealizedPNL = 50.0
+    return item
 
 
 def _mock_account_item(tag, value):
@@ -242,9 +247,9 @@ class TestCancelOrder:
 
 class TestGetPositions:
     def test_get_positions(self, broker):
-        broker._ib.positions.return_value = [
-            _mock_position("AAPL", 100, 150.0),
-            _mock_position("TSLA", -50, 200.0),
+        broker._ib.portfolio.return_value = [
+            _mock_portfolio_item("AAPL", 100, 150.0),
+            _mock_portfolio_item("TSLA", -50, 200.0),
         ]
 
         positions = broker.get_positions()
@@ -257,11 +262,11 @@ class TestGetPositions:
         assert positions["TSLA"].qty == -50
 
     def test_get_positions_empty(self, broker):
-        broker._ib.positions.return_value = []
+        broker._ib.portfolio.return_value = []
         assert broker.get_positions() == {}
 
     def test_get_positions_error(self, broker):
-        broker._ib.positions.side_effect = Exception("API error")
+        broker._ib.portfolio.side_effect = Exception("API error")
 
         with pytest.raises(BrokerError, match="Failed to fetch positions"):
             broker.get_positions()
@@ -436,7 +441,7 @@ class TestGetAllOrders:
 
 class TestClosePosition:
     def test_close_long_position(self, broker):
-        broker._ib.positions.return_value = [_mock_position("AAPL", 100, 150.0)]
+        broker._ib.portfolio.return_value = [_mock_portfolio_item("AAPL", 100, 150.0)]
         trade = _mock_trade(order_id=99)
         broker._ib.placeOrder.return_value = trade
 
@@ -449,7 +454,7 @@ class TestClosePosition:
         assert ib_order.action == "SELL"
 
     def test_close_short_position(self, broker):
-        broker._ib.positions.return_value = [_mock_position("TSLA", -50, 200.0)]
+        broker._ib.portfolio.return_value = [_mock_portfolio_item("TSLA", -50, 200.0)]
         trade = _mock_trade(order_id=100)
         broker._ib.placeOrder.return_value = trade
 
@@ -458,7 +463,7 @@ class TestClosePosition:
         assert order_id == "100"
 
     def test_close_partial_position(self, broker):
-        broker._ib.positions.return_value = [_mock_position("AAPL", 100, 150.0)]
+        broker._ib.portfolio.return_value = [_mock_portfolio_item("AAPL", 100, 150.0)]
         trade = _mock_trade(order_id=101)
         broker._ib.placeOrder.return_value = trade
 
@@ -466,7 +471,7 @@ class TestClosePosition:
         assert order_id == "101"
 
     def test_close_no_position(self, broker):
-        broker._ib.positions.return_value = []
+        broker._ib.portfolio.return_value = []
 
         with pytest.raises(BrokerError, match="No position in AAPL"):
             broker.close_position("AAPL")
@@ -477,9 +482,9 @@ class TestClosePosition:
 
 class TestCloseAllPositions:
     def test_close_all(self, broker):
-        broker._ib.positions.return_value = [
-            _mock_position("AAPL", 100, 150.0),
-            _mock_position("TSLA", 50, 200.0),
+        broker._ib.portfolio.return_value = [
+            _mock_portfolio_item("AAPL", 100, 150.0),
+            _mock_portfolio_item("TSLA", 50, 200.0),
         ]
         trade1 = _mock_trade(order_id=10)
         trade2 = _mock_trade(order_id=11)
@@ -491,15 +496,15 @@ class TestCloseAllPositions:
         assert results["TSLA"] == "11"
 
     def test_close_all_empty(self, broker):
-        broker._ib.positions.return_value = []
+        broker._ib.portfolio.return_value = []
 
         results = broker.close_all_positions()
         assert results == {}
 
     def test_close_all_partial_failure(self, broker):
-        broker._ib.positions.return_value = [
-            _mock_position("AAPL", 100, 150.0),
-            _mock_position("TSLA", 50, 200.0),
+        broker._ib.portfolio.return_value = [
+            _mock_portfolio_item("AAPL", 100, 150.0),
+            _mock_portfolio_item("TSLA", 50, 200.0),
         ]
         trade1 = _mock_trade(order_id=10)
         broker._ib.placeOrder.side_effect = [trade1, Exception("Network error")]
@@ -526,3 +531,112 @@ class TestDisconnect:
     def test_disconnect_no_client(self):
         b = IBKRBroker()
         b.disconnect()  # Should not raise
+
+
+# --- ContractSpec tests ---
+
+
+class TestContractSpec:
+    def test_default_stock(self, broker):
+        spec = ContractSpec()
+        assert spec.asset_type == "STK"
+        assert spec.exchange == "SMART"
+        assert spec.currency == "USD"
+
+    def test_stock_contract(self, broker):
+        spec = ContractSpec(asset_type="STK", exchange="LSE", currency="GBP")
+        with patch("ib_async.Stock") as mock_stock:
+            mock_stock.return_value = Mock()
+            broker._make_contract("VOD", spec)
+            mock_stock.assert_called_once_with("VOD", "LSE", "GBP")
+
+    def test_option_contract(self, broker):
+        spec = ContractSpec(
+            asset_type="OPT",
+            expiry="20260320",
+            strike=150.0,
+            right="C",
+            exchange="SMART",
+            currency="USD",
+        )
+        with patch("ib_async.Option") as mock_opt:
+            mock_opt.return_value = Mock()
+            broker._make_contract("AAPL", spec)
+            mock_opt.assert_called_once_with(
+                "AAPL", "20260320", 150.0, "C", "SMART", "USD"
+            )
+
+    def test_futures_contract(self, broker):
+        spec = ContractSpec(
+            asset_type="FUT",
+            expiry="202603",
+            exchange="CME",
+            currency="USD",
+            multiplier="50",
+        )
+        with patch("ib_async.Future") as mock_fut:
+            mock_fut.return_value = Mock()
+            broker._make_contract("ES", spec)
+            mock_fut.assert_called_once_with(
+                "ES", "202603", "CME", currency="USD", multiplier="50"
+            )
+
+    def test_forex_contract(self, broker):
+        spec = ContractSpec(asset_type="CASH", pair_currency="JPY")
+        with patch("ib_async.Forex") as mock_fx:
+            mock_fx.return_value = Mock()
+            broker._make_contract("USD", spec)
+            mock_fx.assert_called_once_with("USDJPY")
+
+    def test_unsupported_asset_type(self, broker):
+        spec = ContractSpec(asset_type="BOND")
+        with pytest.raises(BrokerError, match="Unsupported asset type"):
+            broker._make_contract("T", spec)
+
+    def test_no_spec_defaults_to_stock(self, broker):
+        with patch("ib_async.Stock") as mock_stock:
+            mock_stock.return_value = Mock()
+            broker._make_contract("AAPL")
+            mock_stock.assert_called_once_with("AAPL", "SMART", "USD")
+
+
+# --- submit_order_with_spec tests ---
+
+
+class TestSubmitOrderWithSpec:
+    def test_submit_option_order(self, broker, sample_order):
+        spec = ContractSpec(
+            asset_type="OPT",
+            expiry="20260320",
+            strike=150.0,
+            right="C",
+        )
+        trade = _mock_trade(order_id=50)
+        broker._ib.placeOrder.return_value = trade
+
+        with patch.object(broker, "_make_contract", return_value=Mock()) as mock_mc:
+            order_id = broker.submit_order_with_spec(sample_order, spec)
+
+        assert order_id == "50"
+        mock_mc.assert_called_once_with(sample_order.symbol, spec)
+
+    def test_submit_forex_order(self, broker):
+        order = Order(
+            symbol="EUR", side=OrderSide.BUY, qty=100000, type=OrderType.MARKET
+        )
+        spec = ContractSpec(asset_type="CASH", pair_currency="USD")
+        trade = _mock_trade(order_id=51)
+        broker._ib.placeOrder.return_value = trade
+
+        with patch.object(broker, "_make_contract", return_value=Mock()):
+            order_id = broker.submit_order_with_spec(order, spec)
+
+        assert order_id == "51"
+
+    def test_submit_with_spec_error(self, broker, sample_order):
+        spec = ContractSpec(asset_type="FUT", expiry="202603", exchange="CME")
+        broker._ib.placeOrder.side_effect = Exception("Network timeout")
+
+        with patch.object(broker, "_make_contract", return_value=Mock()):
+            with pytest.raises(BrokerError, match="Failed to submit order"):
+                broker.submit_order_with_spec(sample_order, spec)

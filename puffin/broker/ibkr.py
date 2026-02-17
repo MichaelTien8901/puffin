@@ -1,6 +1,7 @@
 """Interactive Brokers broker implementation using ib_async."""
 
 import logging
+from dataclasses import dataclass, field
 from datetime import datetime
 
 from puffin.broker.base import (
@@ -19,6 +20,31 @@ from puffin.broker.base import (
 )
 
 logger = logging.getLogger(__name__)
+
+
+@dataclass
+class ContractSpec:
+    """Specification for an IBKR contract beyond simple US stocks.
+
+    Attributes:
+        asset_type: One of "STK", "OPT", "FUT", "CASH".
+        exchange: Exchange (default "SMART" for stocks).
+        currency: Currency (default "USD").
+        expiry: Expiry date string "YYYYMMDD" for options/futures.
+        strike: Strike price for options.
+        right: "C" or "P" for options.
+        multiplier: Contract multiplier (e.g., "100" for options).
+        pair_currency: Second currency for forex pairs (e.g., "JPY" for USD/JPY).
+    """
+
+    asset_type: str = "STK"
+    exchange: str = "SMART"
+    currency: str = "USD"
+    expiry: str | None = None
+    strike: float | None = None
+    right: str | None = None
+    multiplier: str | None = None
+    pair_currency: str | None = None
 
 
 class IBKRBroker(Broker):
@@ -61,10 +87,47 @@ class IBKRBroker(Broker):
             )
         return self._ib
 
-    def _make_contract(self, symbol: str):
-        """Create a US stock contract."""
-        from ib_async import Stock
-        return Stock(symbol, "SMART", "USD")
+    def _make_contract(self, symbol: str, spec: ContractSpec | None = None):
+        """Create an IB contract from symbol and optional spec.
+
+        When spec is None, defaults to a US stock on SMART/USD (backward compatible).
+        """
+        if spec is None:
+            from ib_async import Stock
+            return Stock(symbol, "SMART", "USD")
+
+        asset_type = spec.asset_type.upper()
+
+        if asset_type == "STK":
+            from ib_async import Stock
+            return Stock(symbol, spec.exchange, spec.currency)
+
+        if asset_type == "OPT":
+            from ib_async import Option
+            return Option(
+                symbol,
+                spec.expiry,
+                spec.strike,
+                spec.right,
+                spec.exchange,
+                spec.currency,
+            )
+
+        if asset_type == "FUT":
+            from ib_async import Future
+            return Future(
+                symbol,
+                spec.expiry,
+                spec.exchange,
+                currency=spec.currency,
+                multiplier=spec.multiplier,
+            )
+
+        if asset_type == "CASH":
+            from ib_async import Forex
+            return Forex(symbol + spec.pair_currency)
+
+        raise BrokerError(f"Unsupported asset type: {asset_type}")
 
     def _make_order(self, order: Order):
         """Convert Order to an ib_async order object."""
@@ -110,6 +173,37 @@ class IBKRBroker(Broker):
             logger.info(
                 f"Submitted {order.side.value} order for {order.qty} {order.symbol} "
                 f"(order_id={order_id})"
+            )
+            return order_id
+
+        except BrokerError:
+            raise
+        except Exception as e:
+            error_msg = str(e).lower()
+            if "insufficient" in error_msg or "buying power" in error_msg:
+                raise InsufficientFundsError(f"Insufficient funds: {e}")
+            elif "rejected" in error_msg:
+                raise OrderRejectedError(f"Order rejected: {e}")
+            else:
+                raise BrokerError(f"Failed to submit order: {e}")
+
+    def submit_order_with_spec(self, order: Order, spec: ContractSpec) -> str:
+        """Submit an order with a specific contract specification.
+
+        Use this for options, futures, forex, or non-US stocks.
+        """
+        try:
+            ib = self._connect()
+            contract = self._make_contract(order.symbol, spec)
+            ib_order = self._make_order(order)
+
+            trade = ib.placeOrder(contract, ib_order)
+            ib.sleep(0)
+
+            order_id = str(trade.order.orderId)
+            logger.info(
+                f"Submitted {spec.asset_type} {order.side.value} order for "
+                f"{order.qty} {order.symbol} (order_id={order_id})"
             )
             return order_id
 

@@ -16,7 +16,7 @@ from puffin.broker.base import (
     InvalidOrderError,
 )
 from puffin.broker.alpaca import AlpacaBroker
-from puffin.broker.ibkr import IBKRBroker
+from puffin.broker.ibkr import IBKRBroker, ContractSpec
 from puffin.broker.order_manager import OrderManager
 from puffin.broker.session import TradingSession
 from puffin.broker.safety import (
@@ -46,6 +46,7 @@ __all__ = [
     # Implementations
     "AlpacaBroker",
     "IBKRBroker",
+    "ContractSpec",
     "OrderManager",
     "TradingSession",
     "SafetyController",

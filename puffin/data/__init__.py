@@ -4,6 +4,7 @@ from puffin.data.cache import DataCache
 from puffin.data.preprocessing import preprocess
 from puffin.data.fundamental import FundamentalDataProvider
 from puffin.data.storage import MarketDataStore
+from puffin.data.ibkr_provider import IBKRDataProvider
 
 __all__ = [
     "DataProvider",
@@ -12,4 +13,5 @@ __all__ = [
     "preprocess",
     "FundamentalDataProvider",
     "MarketDataStore",
+    "IBKRDataProvider",
 ]
