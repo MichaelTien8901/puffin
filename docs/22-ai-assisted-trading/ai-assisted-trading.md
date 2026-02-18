@@ -422,15 +422,14 @@ Here's a complete example that ties everything together:
 from datetime import datetime, timedelta
 from puffin.ai import (
     ClaudeProvider,
-    NewsSignalGenerator,
     PortfolioAgent,
     generate_market_report,
 )
-from puffin.data import NewsProvider
+from puffin.ai.news import NewsSignalGenerator
 
 # Initialize components
 llm_provider = ClaudeProvider()
-news_provider = NewsProvider(api_key="your-news-api-key")
+news_provider = NewsSignalGenerator(api_key="your-news-api-key")
 signal_generator = NewsSignalGenerator(llm_provider)
 portfolio_agent = PortfolioAgent(llm_provider)
 

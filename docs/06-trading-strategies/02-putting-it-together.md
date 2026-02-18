@@ -2,7 +2,7 @@
 layout: default
 title: "Putting It All Together"
 parent: "Part 6: Trading Strategies"
-nav_order: 3
+nav_order: 2
 ---
 
 # Putting It All Together
@@ -29,7 +29,7 @@ Let's build a complete momentum trading system that incorporates all best practi
 
 ```python
 from puffin.data import YFinanceProvider
-from puffin.indicators import sma, rsi, atr
+from puffin.factors.technical import TechnicalIndicators
 import pandas as pd
 
 # Load data
@@ -42,16 +42,17 @@ data = provider.get_historical(
 )
 
 # Calculate indicators
-data['sma_50'] = sma(data['close'], 50)
-data['sma_200'] = sma(data['close'], 200)
-data['rsi'] = rsi(data['close'], 14)
-data['atr'] = atr(data['high'], data['low'], data['close'], 14)
+ti = TechnicalIndicators()
+data['sma_50'] = ti.sma(data['close'], 50)
+data['sma_200'] = ti.sma(data['close'], 200)
+data['rsi'] = ti.rsi(data['close'], 14)
+data['atr'] = ti.atr(data['high'], data['low'], data['close'], 14)
 ```
 
 ### Step 2: Strategy with Risk Management
 
 ```python
-from puffin.strategies import Strategy, Signal
+from puffin.strategies import Strategy
 from puffin.risk import (
     volatility_based,
     StopLossManager,
@@ -156,14 +157,14 @@ class ProductionMomentumStrategy(Strategy):
 ### Step 3: Backtesting and Analysis
 
 ```python
-from puffin.backtest import Backtest
-from puffin.performance import PerformanceMetrics
+from puffin.backtest import Backtester
+from puffin.monitor import PnLTracker
 
 # Prepare data with signals
 data_with_signals = strategy.generate_signals(data)
 
 # Run backtest
-backtest = Backtest(
+backtest = Backtester(
     data=data_with_signals,
     strategy=strategy,
     initial_capital=100000,
@@ -174,7 +175,7 @@ backtest = Backtest(
 result = backtest.run()
 
 # Analyze performance
-metrics = PerformanceMetrics(result['equity_curve'])
+metrics = PnLTracker(result['equity_curve'])
 
 print(f"Total Return: {result['total_return']:.2%}")
 print(f"Sharpe Ratio: {metrics.sharpe_ratio():.2f}")
@@ -225,7 +226,7 @@ print(f"Information Ratio: {metrics['ir']:.2f}")
 Combine multiple strategies for diversification:
 
 ```python
-from puffin.strategies import Strategy, Signal
+from puffin.strategies import Strategy
 
 class MultiStrategyPortfolio:
     """Portfolio combining multiple strategies."""
@@ -297,7 +298,7 @@ portfolio = MultiStrategyPortfolio(strategies, weights)
 Integrate with live trading:
 
 ```python
-from puffin.live import LiveTrader
+from puffin.broker import AlpacaBroker
 from puffin.monitor import SystemHealth
 
 class ProductionTradingSystem:

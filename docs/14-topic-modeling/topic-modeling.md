@@ -421,10 +421,10 @@ Here's a complete example of using topic modeling in a trading strategy:
 ```python
 import pandas as pd
 from puffin.nlp import EarningsTopicAnalyzer, plot_topic_evolution
-from puffin.data import DataFetcher
+from puffin.data import DataProvider
 
 # 1. Fetch earnings transcripts
-fetcher = DataFetcher()
+fetcher = DataProvider()
 tickers = ['AAPL', 'MSFT', 'GOOGL']
 
 all_transcripts = []

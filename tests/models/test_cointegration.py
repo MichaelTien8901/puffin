@@ -161,7 +161,7 @@ class TestJohansenTest:
             johansen_test(short_data)
 
 
-class TestFindCointegrated Pairs:
+class TestFindCointegratedPairs:
     """Tests for finding cointegrated pairs."""
 
     def test_find_pairs(self, multiple_series):

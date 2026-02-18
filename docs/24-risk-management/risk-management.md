@@ -82,7 +82,8 @@ Stop losses protect against excessive losses. The `puffin.risk.stop_loss` module
 A fixed stop loss at a specified distance from entry:
 
 ```python
-from puffin.risk import FixedStop, Position
+from puffin.risk import FixedStop
+from puffin.risk.stop_loss import Position
 from datetime import datetime
 
 # Create stop loss

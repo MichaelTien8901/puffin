@@ -295,12 +295,13 @@ features = pd.DataFrame({
 })
 
 # Add technical indicators
-from puffin.indicators import SMA, RSI, MACD
+from puffin.factors.technical import TechnicalIndicators
 
-features['sma_20'] = SMA(df['Close'], 20)
-features['rsi'] = RSI(df['Close'], 14)
+ti = TechnicalIndicators()
+features['sma_20'] = ti.sma(df['Close'], 20)
+features['rsi'] = ti.rsi(df['Close'], 14)
 
-macd_result = MACD(df['Close'])
+macd_result = ti.macd(df['Close'])
 features['macd'] = macd_result['macd']
 features['signal'] = macd_result['signal']
 
@@ -350,17 +351,17 @@ def create_trading_features(df):
         features[f'sma_{window}_ratio'] = df['Close'] / features[f'sma_{window}']
 
     # RSI
-    features['rsi_14'] = RSI(df['Close'], 14)
+    ti = TechnicalIndicators()
+    features['rsi_14'] = ti.rsi(df['Close'], 14)
 
     # MACD
-    macd = MACD(df['Close'])
+    macd = ti.macd(df['Close'])
     features['macd'] = macd['macd']
     features['macd_signal'] = macd['signal']
     features['macd_hist'] = macd['histogram']
 
     # Bollinger Bands
-    from puffin.indicators import BollingerBands
-    bb = BollingerBands(df['Close'], 20, 2)
+    bb = ti.bollinger_bands(df['Close'], 20, 2)
     features['bb_upper'] = bb['upper']
     features['bb_lower'] = bb['lower']
     features['bb_position'] = (df['Close'] - bb['lower']) / (bb['upper'] - bb['lower'])

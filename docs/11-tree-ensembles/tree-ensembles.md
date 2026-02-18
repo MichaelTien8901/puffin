@@ -59,10 +59,10 @@ This process reduces variance while maintaining low bias.
 import pandas as pd
 import numpy as np
 from puffin.ensembles import RandomForestTrader
-from puffin.data import YFinanceClient
+from puffin.data import YFinanceProvider
 
 # Load data
-client = YFinanceClient()
+client = YFinanceProvider()
 df = client.get_stock_prices("AAPL", start="2020-01-01", end="2023-12-31")
 
 # Create features
@@ -433,7 +433,7 @@ rf_results = ensemble.backtest_signals(features, forward_returns, top_pct=0.2, b
 ```python
 import pandas as pd
 import numpy as np
-from puffin.data import YFinanceClient
+from puffin.data import YFinanceProvider
 from puffin.ensembles import (
     XGBoostTrader, LightGBMTrader, CatBoostTrader,
     ModelInterpreter, EnsembleLongShort
@@ -441,7 +441,7 @@ from puffin.ensembles import (
 
 # 1. Load data for multiple assets
 tickers = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "NVDA", "JPM", "V", "WMT"]
-client = YFinanceClient()
+client = YFinanceProvider()
 
 data = []
 for ticker in tickers:

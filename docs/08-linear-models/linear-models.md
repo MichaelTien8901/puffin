@@ -49,11 +49,11 @@ Ordinary Least Squares (OLS) minimizes the sum of squared residuals to estimate 
 import pandas as pd
 import numpy as np
 from puffin.models.linear import OLSModel
-from puffin.data.sources import get_bars
+from puffin.data import YFinanceProvider
 
 # Fetch historical data
 symbol = 'AAPL'
-df = get_bars(symbol, start='2020-01-01', end='2023-12-31')
+df = YFinanceProvider().fetch(symbol, start='2020-01-01', end='2023-12-31')
 
 # Calculate returns and features
 df['returns'] = df['close'].pct_change()
@@ -482,11 +482,11 @@ Let's build a complete trading system using linear models:
 ```python
 import pandas as pd
 import numpy as np
-from puffin.data.sources import get_bars
+from puffin.data import YFinanceProvider
 from puffin.models.linear import RidgeModel, DirectionClassifier
 from puffin.models.factor_models import FamaFrenchModel
-from puffin.backtest import Backtest, Strategy
-from puffin.risk import calculate_metrics
+from puffin.backtest import Backtester
+from puffin.strategies import Strategy
 
 class LinearModelStrategy(Strategy):
     """Trading strategy using linear models."""
@@ -589,10 +589,10 @@ class LinearModelStrategy(Strategy):
         self.direction_model.fit(X_train, y_direction)
 
 # Run backtest
-df = get_bars('AAPL', start='2020-01-01', end='2023-12-31')
+df = YFinanceProvider().fetch('AAPL', start='2020-01-01', end='2023-12-31')
 
 strategy = LinearModelStrategy(lookback=120, refit_freq=20)
-backtest = Backtest(data=df, strategy=strategy, cash=100000)
+backtest = Backtester(data=df, strategy=strategy, cash=100000)
 
 results = backtest.run()
 

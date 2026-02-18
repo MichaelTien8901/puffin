@@ -854,9 +854,9 @@ class LiveMomentumStrategy(MomentumStrategy):
 Use streaming data instead of historical:
 
 ```python
-from puffin.data import AlpacaStreamProvider
+from puffin.data.alpaca_provider import AlpacaProvider
 
-stream = AlpacaStreamProvider(api_key=key, secret_key=secret)
+stream = AlpacaProvider(api_key=key, secret_key=secret)
 
 def on_bar(bar):
     """Handle real-time bar data."""
@@ -898,4 +898,4 @@ For a deep dive into WebSocket streaming, tick-to-bar aggregation, and order boo
 
 - [Alpaca API Documentation](https://alpaca.markets/docs/)
 - [Trading System Best Practices](https://www.investopedia.com/articles/trading/11/automated-trading-systems.asp)
-- [Risk Management for Algo Trading](https://www.quantstart.com/articles/Risk-Management-for-Algorithmic-Trading/)
+- [Risk Management for Algo Trading](https://www.investopedia.com/terms/r/riskmanagement.asp)

@@ -87,7 +87,7 @@ print(f"Buying power: ${account.buying_power:,.2f}")
 
 ```python
 # Alpaca
-from puffin.data import AlpacaProvider
+from puffin.data.alpaca_provider import AlpacaProvider
 data = AlpacaProvider()
 
 # IBKR

@@ -362,7 +362,7 @@ Here's a full pipeline for training a neural network to predict next-day returns
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
-from puffin.data import get_ticker_data
+from puffin.data import YFinanceProvider
 from puffin.ml import compute_features
 from puffin.deep import TradingFFN
 from puffin.deep.training import set_seed
@@ -371,7 +371,7 @@ from puffin.deep.training import set_seed
 set_seed(42)
 
 # Load data
-data = get_ticker_data('AAPL', start='2020-01-01', end='2023-12-31')
+data = YFinanceProvider().fetch('AAPL', start='2020-01-01', end='2023-12-31')
 
 # Compute features
 features = compute_features(data)
