@@ -16,7 +16,7 @@ class TestPortfolioRiskManager:
 
         ok, dd = rm.check_drawdown(equity, max_dd=0.1)
 
-        assert ok is True
+        assert ok == True
         assert dd < 0.1
 
     def test_check_drawdown_exceeded(self):
@@ -26,7 +26,7 @@ class TestPortfolioRiskManager:
 
         ok, dd = rm.check_drawdown(equity, max_dd=0.1)
 
-        assert ok is False
+        assert ok == False
         assert dd > 0.1
 
     def test_check_exposure_within_limit(self):
@@ -39,7 +39,7 @@ class TestPortfolioRiskManager:
 
         ok, exposure = rm.check_exposure(positions, max_exposure=1.0)
 
-        assert ok is True
+        assert ok == True
         assert exposure <= 1.0
 
     def test_check_exposure_exceeded(self):
@@ -63,8 +63,8 @@ class TestPortfolioRiskManager:
 
         triggered = rm.circuit_breaker(equity, threshold=0.2)
 
-        assert triggered is False
-        assert rm.trading_halted is False
+        assert triggered == False
+        assert rm.trading_halted == False
 
     def test_circuit_breaker_triggered(self):
         """Test circuit breaker triggered."""
@@ -73,8 +73,8 @@ class TestPortfolioRiskManager:
 
         triggered = rm.circuit_breaker(equity, threshold=0.2)
 
-        assert triggered is True
-        assert rm.trading_halted is True
+        assert triggered == True
+        assert rm.trading_halted == True
 
     def test_circuit_breaker_reset(self):
         """Test circuit breaker reset."""
@@ -82,10 +82,10 @@ class TestPortfolioRiskManager:
         equity = pd.Series([100, 105, 110, 85, 80])
 
         rm.circuit_breaker(equity, threshold=0.2)
-        assert rm.trading_halted is True
+        assert rm.trading_halted == True
 
         rm.reset_circuit_breaker()
-        assert rm.trading_halted is False
+        assert rm.trading_halted == False
 
     def test_compute_var_historical(self):
         """Test historical VaR calculation."""

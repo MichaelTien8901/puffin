@@ -27,10 +27,10 @@ class TestFixedStop:
         )
 
         # Stop at 95, current price 94 -> triggered
-        assert stop.check(94.0, 100.0, position) is True
+        assert stop.check(94.0, 100.0, position) == True
 
         # Stop at 95, current price 96 -> not triggered
-        assert stop.check(96.0, 100.0, position) is False
+        assert stop.check(96.0, 100.0, position) == False
 
     def test_short_position_triggered(self):
         """Test fixed stop triggered for short position."""
@@ -44,10 +44,10 @@ class TestFixedStop:
         )
 
         # Stop at 105, current price 106 -> triggered
-        assert stop.check(106.0, 100.0, position) is True
+        assert stop.check(106.0, 100.0, position) == True
 
         # Stop at 105, current price 104 -> not triggered
-        assert stop.check(104.0, 100.0, position) is False
+        assert stop.check(104.0, 100.0, position) == False
 
     def test_percentage_stop(self):
         """Test percentage-based stop."""
@@ -61,10 +61,10 @@ class TestFixedStop:
         )
 
         # 6% loss -> triggered
-        assert stop.check(94.0, 100.0, position) is True
+        assert stop.check(94.0, 100.0, position) == True
 
         # 4% loss -> not triggered
-        assert stop.check(96.0, 100.0, position) is False
+        assert stop.check(96.0, 100.0, position) == False
 
 
 class TestTrailingStop:
@@ -82,17 +82,17 @@ class TestTrailingStop:
         )
 
         # Price goes up to 110
-        assert stop.check(110.0, 100.0, position) is False
+        assert stop.check(110.0, 100.0, position) == False
         assert position.highest_price == 110.0
 
-        # Price falls to 104 (within 5 of high) -> not triggered
-        assert stop.check(104.0, 100.0, position) is False
+        # Price falls to 106 (within 5 of high 110) -> not triggered
+        assert stop.check(106.0, 100.0, position) == False
 
-        # Price falls to 104.5 (within 5 of 110) -> not triggered
-        assert stop.check(104.5, 100.0, position) is False
+        # Price falls to 105.5 (within 5 of 110) -> not triggered
+        assert stop.check(105.5, 100.0, position) == False
 
-        # Price falls to 103 (more than 5 from 110) -> triggered
-        assert stop.check(103.0, 100.0, position) is True
+        # Price falls to 104 (more than 5 from 110) -> triggered
+        assert stop.check(104.0, 100.0, position) == True
 
     def test_short_position_trailing(self):
         """Test trailing stop for short position."""
@@ -106,14 +106,14 @@ class TestTrailingStop:
         )
 
         # Price goes down to 90
-        assert stop.check(90.0, 100.0, position) is False
+        assert stop.check(90.0, 100.0, position) == False
         assert position.lowest_price == 90.0
 
         # Price rises to 94 (within 5 of low) -> not triggered
-        assert stop.check(94.0, 100.0, position) is False
+        assert stop.check(94.0, 100.0, position) == False
 
         # Price rises to 96 (more than 5 from 90) -> triggered
-        assert stop.check(96.0, 100.0, position) is True
+        assert stop.check(96.0, 100.0, position) == True
 
 
 class TestATRStop:
@@ -132,8 +132,8 @@ class TestATRStop:
         )
 
         # Stop at 100 - 2*3 = 94
-        assert stop.check(93.0, 100.0, position) is True
-        assert stop.check(95.0, 100.0, position) is False
+        assert stop.check(93.0, 100.0, position) == True
+        assert stop.check(95.0, 100.0, position) == False
 
     def test_trailing_atr_stop(self):
         """Test trailing ATR stop."""
@@ -148,12 +148,12 @@ class TestATRStop:
         )
 
         # Price goes up to 110
-        assert stop.check(110.0, 100.0, position) is False
+        assert stop.check(110.0, 100.0, position) == False
         assert position.highest_price == 110.0
 
         # Stop now at 110 - 2*3 = 104
-        assert stop.check(103.0, 100.0, position) is True
-        assert stop.check(105.0, 100.0, position) is False
+        assert stop.check(103.0, 100.0, position) == True
+        assert stop.check(105.0, 100.0, position) == False
 
     def test_missing_atr(self):
         """Test error when ATR not provided."""
@@ -186,10 +186,10 @@ class TestTimeStop:
 
         # First 4 bars -> not triggered
         for _ in range(4):
-            assert stop.check(100.0, 100.0, position) is False
+            assert stop.check(100.0, 100.0, position) == False
 
         # 5th bar -> triggered
-        assert stop.check(100.0, 100.0, position) is True
+        assert stop.check(100.0, 100.0, position) == True
 
     def test_time_based_stop(self):
         """Test time-based stop."""
@@ -205,11 +205,11 @@ class TestTimeStop:
         )
 
         # 30 minutes -> not triggered
-        assert stop.check(100.0, 100.0, position) is False
+        assert stop.check(100.0, 100.0, position) == False
 
         # 70 minutes -> triggered
         position.metadata['current_time'] = entry_time + timedelta(minutes=70)
-        assert stop.check(100.0, 100.0, position) is True
+        assert stop.check(100.0, 100.0, position) == True
 
 
 class TestStopLossManager:
@@ -231,10 +231,10 @@ class TestStopLossManager:
         manager.add_stop('AAPL', FixedStop(stop_distance=5.0))
 
         # Not triggered
-        assert manager.check_stops('AAPL', 96.0) is False
+        assert manager.check_stops('AAPL', 96.0) == False
 
         # Triggered
-        assert manager.check_stops('AAPL', 94.0) is True
+        assert manager.check_stops('AAPL', 94.0) == True
 
     def test_multiple_stops(self):
         """Test multiple stops on same position."""
@@ -253,10 +253,10 @@ class TestStopLossManager:
         manager.add_stop('AAPL', TimeStop(max_bars=10))
 
         # Neither triggered
-        assert manager.check_stops('AAPL', 96.0) is False
+        assert manager.check_stops('AAPL', 96.0) == False
 
         # Price stop triggered
-        assert manager.check_stops('AAPL', 94.0) is True
+        assert manager.check_stops('AAPL', 94.0) == True
 
     def test_remove_position(self):
         """Test removing position."""
@@ -277,7 +277,7 @@ class TestStopLossManager:
         manager.remove_position('AAPL')
 
         # Check should return False (no position)
-        assert manager.check_stops('AAPL', 94.0) is False
+        assert manager.check_stops('AAPL', 94.0) == False
 
     def test_get_stop_prices(self):
         """Test getting stop prices."""

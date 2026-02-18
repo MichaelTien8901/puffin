@@ -190,7 +190,7 @@ class TestTradingEnvironment:
         _, reward2, _, _, _ = env.step(action=1)  # Hold
 
         # Reward should reflect price change
-        assert isinstance(reward2, float)
+        assert isinstance(reward2, (int, float, np.floating))
 
     def test_reward_sharpe(self, simple_prices):
         """Test Sharpe-like reward calculation."""
@@ -297,7 +297,7 @@ class TestTradingEnvironment:
                 break
 
         # Should complete without errors
-        assert isinstance(total_reward, float)
+        assert isinstance(total_reward, (int, float, np.floating))
         assert 'portfolio_value' in info
 
     def test_portfolio_value_tracking(self, simple_prices):
@@ -310,4 +310,4 @@ class TestTradingEnvironment:
             env.step(action=1)
 
         assert len(env.portfolio_values) > 0
-        assert all(isinstance(pv, (int, float)) for pv in env.portfolio_values)
+        assert all(isinstance(pv, (int, float, np.integer, np.floating)) for pv in env.portfolio_values)

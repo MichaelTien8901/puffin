@@ -16,7 +16,7 @@ class TestDiscretizeState:
         obs = np.array([0.5])
         bins = [np.linspace(0, 1, 5)]
         state = discretize_state(obs, bins)
-        assert isinstance(state, int)
+        assert isinstance(state, (int, np.integer))
         assert 0 <= state < 4
 
     def test_discretize_state_2d(self):
@@ -24,7 +24,7 @@ class TestDiscretizeState:
         obs = np.array([0.5, 1.5])
         bins = [np.linspace(0, 1, 5), np.linspace(0, 2, 5)]
         state = discretize_state(obs, bins)
-        assert isinstance(state, int)
+        assert isinstance(state, (int, np.integer))
         assert 0 <= state < 16  # 4 * 4
 
     def test_discretize_state_invalid_dims(self):

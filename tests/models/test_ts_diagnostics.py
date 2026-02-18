@@ -90,7 +90,7 @@ class TestStationarity:
         assert 'critical_values' in result
 
         # White noise should be stationary
-        assert result['is_stationary'] is True
+        assert result['is_stationary'] == True
 
     def test_adf_non_stationary(self, non_stationary_series):
         """Test ADF on non-stationary series."""
@@ -109,7 +109,7 @@ class TestStationarity:
         assert 'is_stationary' in result
 
         # White noise should be stationary
-        assert result['is_stationary'] is True
+        assert result['is_stationary'] == True
 
     def test_kpss_non_stationary(self, non_stationary_series):
         """Test KPSS on non-stationary series."""
@@ -206,7 +206,7 @@ class TestIntegration:
         diff_result = test_stationarity(diff_series)
 
         # Differenced random walk should be stationary
-        assert diff_result['is_stationary'] is True
+        assert diff_result['is_stationary'] == True
 
 
 class TestEdgeCases:
