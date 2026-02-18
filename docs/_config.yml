@@ -9,7 +9,7 @@ url: ""
 # Theme
 theme: just-the-docs
 color_scheme: dark
-logo: "/puffin/assets/images/puffin_logo.png"
+logo: "/assets/images/puffin_logo.png"
 
 # Mermaid diagrams
 mermaid:
