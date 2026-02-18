@@ -574,6 +574,10 @@ Tree ensemble methods provide powerful tools for trading signal generation:
 
 The combination of high predictive power, interpretability, and robustness makes tree ensembles essential tools for quantitative trading.
 
+## Source Code
+
+Browse the implementation: [`puffin/ensembles/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/ensembles)
+
 ## Further Reading
 
 - Friedman, J. H. (2001). "Greedy function approximation: A gradient boosting machine."

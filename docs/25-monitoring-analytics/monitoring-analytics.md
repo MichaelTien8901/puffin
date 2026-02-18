@@ -542,6 +542,10 @@ print(f"Sharpe vs Benchmark: {metrics['ir']:.2f}")
    - Monitor drawdowns
    - Check position concentration
 
+## Source Code
+
+Browse the implementation: [`puffin/monitor/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/monitor)
+
 ## Next Steps
 
 - See [Risk Management]({{ site.baseurl }}/24-risk-management/) for risk controls

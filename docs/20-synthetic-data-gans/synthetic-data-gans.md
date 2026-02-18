@@ -547,3 +547,7 @@ Next steps:
 - Use Wasserstein distance for stability
 - Apply to real market data
 - Integrate with backtesting frameworks
+
+## Source Code
+
+Browse the implementation: [`puffin/deep/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/deep)

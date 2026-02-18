@@ -129,3 +129,7 @@ account = broker.get_account()
 ```
 
 For IBKR-specific features (options, futures, forex), use `submit_order_with_spec()` with a `ContractSpec` — see [IBKR Advanced Trading](02-ibkr-advanced).
+
+## Source Code
+
+Browse the implementation: [`puffin/broker/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/broker)

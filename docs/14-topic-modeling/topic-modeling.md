@@ -620,6 +620,10 @@ for i in range(0, len(all_transcripts), batch_size):
     process_batch_results(weights)
 ```
 
+## Source Code
+
+Browse the implementation: [`puffin/nlp/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/nlp)
+
 ## Next Steps
 
 Topic modeling provides powerful insights into financial text. In the next chapters, we'll explore:

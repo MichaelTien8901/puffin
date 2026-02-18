@@ -409,6 +409,10 @@ else:
 - IC, IR, and decay metrics distinguish useful signals from noise
 - Always validate alternative data before deploying capital
 
+## Source Code
+
+Browse the implementation: [`puffin/data/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/data)
+
 ## Next Steps
 
 In Part 4, we'll use alternative data to construct **alpha factors** and combine them into multi-factor models.

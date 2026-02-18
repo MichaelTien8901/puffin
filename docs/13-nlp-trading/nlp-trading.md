@@ -598,6 +598,10 @@ Tweets and headlines have limited context:
 
 Combine multiple approaches and validate against market outcomes. Text signals work best as part of a broader feature set, not as sole predictors.
 
+## Source Code
+
+Browse the implementation: [`puffin/nlp/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/nlp)
+
 ## Next Steps
 
 - **Chapter 2**: Topic modeling with LDA and LSI

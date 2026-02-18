@@ -610,6 +610,10 @@ if tradable_pairs:
 8. **Risk management**: Always include transaction costs and use proper position sizing in pairs trading.
 
 
+## Source Code
+
+Browse the implementation: [`puffin/models/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/models)
+
 ## Next Steps
 
 - Explore advanced time series models (state-space models, regime-switching models)
@@ -618,4 +622,4 @@ if tradable_pairs:
 - Develop multi-pair portfolio optimization
 - Integrate with live trading systems
 
-For more details, see the [Puffin API documentation](https://github.com/yourusername/puffin) and explore the examples in the repository.
+For more details, see the [Puffin repository](https://github.com/MichaelTien8901/puffin) and explore the examples in the repository.

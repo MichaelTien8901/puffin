@@ -364,6 +364,10 @@ if portfolio_rm.circuit_breaker(equity_curve, threshold=0.15):
    - Use wider stops in volatile markets
    - Tighten stops in trending markets
 
+## Source Code
+
+Browse the implementation: [`puffin/risk/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/risk)
+
 ## Next Steps
 
 - See [Monitoring & Analytics]({{ site.baseurl }}/25-monitoring-analytics/) for performance tracking

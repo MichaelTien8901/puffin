@@ -451,3 +451,7 @@ Next steps:
 - Combine with other ML models
 - Use for risk management and portfolio optimization
 - Explore variational methods for uncertainty quantification
+
+## Source Code
+
+Browse the implementation: [`puffin/deep/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/deep)

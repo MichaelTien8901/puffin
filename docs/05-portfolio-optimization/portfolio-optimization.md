@@ -567,6 +567,10 @@ for name, result in results.items():
 
 5. **Multiple Strategies**: Different optimization approaches work better in different market conditions; consider combining strategies or using ensemble approaches
 
+## Source Code
+
+Browse the implementation: [`puffin/portfolio/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/portfolio)
+
 ## Further Reading
 
 - Markowitz, H. (1952). ["Portfolio Selection"](https://doi.org/10.2307/2975974). Journal of Finance

@@ -195,6 +195,10 @@ def plot_depth(book: OrderBook, title: str = "Order Book Depth"):
 
 3. **Order book visualization**: Using the `plot_depth` function, capture a snapshot of the order book at 10-second intervals for 2 minutes. Create an animation or grid of plots showing how the depth profile evolves over time.
 
+## Source Code
+
+Browse the implementation: [`puffin/data/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/data)
+
 ## Further Reading
 
 - The [Data Pipeline]({{ site.baseurl }}/02-data-pipeline/) chapter covers the `DataProvider` interface and historical data fetching.

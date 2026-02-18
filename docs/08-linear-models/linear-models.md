@@ -631,6 +631,10 @@ backtest.plot()
 
 8. **Monitor residuals** - Ensure model assumptions hold
 
+## Source Code
+
+Browse the implementation: [`puffin/models/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/models)
+
 ## Next Steps
 
 - **Part 9: Time Series Models** - ARIMA, GARCH, state-space models

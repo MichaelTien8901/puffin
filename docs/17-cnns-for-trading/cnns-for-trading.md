@@ -440,6 +440,10 @@ print(f"\nSharpe Ratio: {sharpe_ratio:.2f}")
 4. **Validation is critical**: Always use out-of-sample testing
 5. **Combine with traditional analysis**: CNNs complement, not replace, fundamental analysis
 
+## Source Code
+
+Browse the implementation: [`puffin/deep/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/deep)
+
 ## Next Steps
 
 - Experiment with different architectures

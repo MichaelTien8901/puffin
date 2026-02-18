@@ -149,6 +149,10 @@ If your strategy performs well in-sample but poorly out-of-sample, it's likely o
 - Walk-forward analysis tests strategy robustness across time periods
 - Visualize equity curves and drawdowns to understand strategy behavior
 
+## Source Code
+
+Browse the implementation: [`puffin/backtest/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/backtest)
+
 ## Next Steps
 
 In Part 5, we'll apply **machine learning** to generate trading signals.

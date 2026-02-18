@@ -702,6 +702,10 @@ In this chapter, we covered:
 
 RNNs and their variants (LSTM, GRU) are powerful tools for time series prediction in trading, but they require careful tuning and validation to avoid overfitting and ensure robust performance.
 
+## Source Code
+
+Browse the implementation: [`puffin/deep/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/deep)
+
 ## Next Steps
 
 - Experiment with different architectures and hyperparameters

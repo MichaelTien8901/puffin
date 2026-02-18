@@ -450,6 +450,10 @@ system.run()
    - Set up alerts
    - Review performance regularly
 
+## Source Code
+
+Browse the implementation: [`puffin/strategies/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/strategies)
+
 ## Next Steps
 
 Now that you understand how to build complete trading systems:

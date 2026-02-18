@@ -830,3 +830,7 @@ Next steps:
 - van Hasselt et al. (2016). Deep Reinforcement Learning with Double Q-learning
 - [Schulman et al. (2017). Proximal Policy Optimization Algorithms](https://arxiv.org/abs/1707.06347)
 - stable-baselines3 documentation: https://stable-baselines3.readthedocs.io/
+
+## Source Code
+
+Browse the implementation: [`puffin/rl/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/rl)

@@ -567,6 +567,10 @@ else:
    - Handle survivorship bias
    - Account for corporate actions (splits, dividends)
 
+## Source Code
+
+Browse the implementation: [`puffin/factors/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/factors)
+
 ## Next Steps
 
 Now that you understand alpha factor research, you can:

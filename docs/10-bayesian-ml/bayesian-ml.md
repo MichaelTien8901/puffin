@@ -630,6 +630,10 @@ Key implementations in Puffin:
 
 In the next chapter, we'll explore advanced Bayesian techniques including hierarchical models and Bayesian optimization for strategy selection.
 
+## Source Code
+
+Browse the implementation: [`puffin/models/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/models)
+
 ## Further Reading
 
 - [*Bayesian Methods for Hackers*](https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers) by Cameron Davidson-Pilon

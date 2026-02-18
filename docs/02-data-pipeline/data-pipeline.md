@@ -139,6 +139,10 @@ provider.stream_realtime(["AAPL", "MSFT"], callback=on_update)
 {: .tip }
 For a deep dive into real-time streaming — WebSocket protocols, tick-to-bar aggregation, order book depth, and auto-reconnection — see [Part 26: Real-Time Market Data]({{ site.baseurl }}/26-realtime-data/).
 
+## Source Code
+
+Browse the implementation: [`puffin/data/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/data)
+
 ## Next Steps
 
 With data flowing, we're ready to build **trading strategies** in Part 3.

@@ -439,6 +439,10 @@ print(portfolio_weights)
 
 Unsupervised learning complements supervised models by revealing structure in unlabeled data. Use it for portfolio construction, risk management, and regime detection.
 
+## Source Code
+
+Browse the implementation: [`puffin/unsupervised/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/unsupervised)
+
 ## Next Steps
 
 Part 13 explores **NLP for trading**: sentiment analysis, news processing, and text-based signals.

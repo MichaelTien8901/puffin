@@ -575,6 +575,10 @@ Applications include:
 
 Next, we'll explore deep learning models for time series prediction and trading.
 
+## Source Code
+
+Browse the implementation: [`puffin/nlp/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/nlp)
+
 ## Further Reading
 
 - [Mikolov et al. (2013). "Efficient Estimation of Word Representations in Vector Space"](https://arxiv.org/abs/1301.3781)
