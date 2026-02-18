@@ -42,6 +42,7 @@ graph TD
     G --> W[Part 23: Live Trading]
     W --> X[Part 24: Risk Management]
     X --> Y[Part 25: Monitoring & Analytics]
+    W --> Z[Part 26: Real-Time Market Data]
 
     style A fill:#2d5016,stroke:#1a3a1a,color:#e8e0d4
     style B fill:#2d5016,stroke:#1a3a1a,color:#e8e0d4
@@ -68,6 +69,7 @@ graph TD
     style W fill:#7a2020,stroke:#4a1010,color:#e8e0d4
     style X fill:#7a2020,stroke:#4a1010,color:#e8e0d4
     style Y fill:#7a2020,stroke:#4a1010,color:#e8e0d4
+    style Z fill:#7a2020,stroke:#4a1010,color:#e8e0d4
 
     click A "01-market-foundations/"
     click B "02-data-pipeline/"
@@ -94,6 +96,7 @@ graph TD
     click W "23-live-trading/"
     click X "24-risk-management/"
     click Y "25-monitoring-analytics/"
+    click Z "26-realtime-data/"
 ```
 
 ## Parts
@@ -125,6 +128,7 @@ graph TD
 | [23. Live Trading](23-live-trading/) | Going live | Paper trading, broker integration, order management |
 | [24. Risk Management](24-risk-management/) | Managing risk | Position sizing, stop losses, VaR, portfolio controls |
 | [25. Monitoring & Analytics](25-monitoring-analytics/) | Tracking performance | Dashboards, trade logs, P&L attribution |
+| [26. Real-Time Market Data](26-realtime-data/) | Live streaming | WebSocket feeds, order book depth, tick-to-bar aggregation |
 
 ## Prerequisites
 

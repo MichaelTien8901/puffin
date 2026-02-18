@@ -366,6 +366,6 @@ if portfolio_rm.circuit_breaker(equity_curve, threshold=0.15):
 
 ## Next Steps
 
-- See [Monitoring & Analytics](/docs/25-monitoring-analytics/) for performance tracking
-- See [Live Trading](/docs/23-live-trading/01-live-trading) for integrating risk management
+- See [Monitoring & Analytics]({{ site.baseurl }}/25-monitoring-analytics/) for performance tracking
+- See [Live Trading]({{ site.baseurl }}/23-live-trading/01-live-trading) for integrating risk management
 - Check `examples/` for complete implementations

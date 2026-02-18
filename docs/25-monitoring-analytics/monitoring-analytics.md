@@ -544,6 +544,6 @@ print(f"Sharpe vs Benchmark: {metrics['ir']:.2f}")
 
 ## Next Steps
 
-- See [Risk Management](/docs/24-risk-management/) for risk controls
-- See [Live Trading](/docs/23-live-trading/01-live-trading) for production deployment
+- See [Risk Management]({{ site.baseurl }}/24-risk-management/) for risk controls
+- See [Live Trading]({{ site.baseurl }}/23-live-trading/01-live-trading) for production deployment
 - Check `examples/` for complete implementations

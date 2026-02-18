@@ -627,11 +627,15 @@ provider = AsyncClaudeProvider()
 results = asyncio.run(analyze_parallel(provider, articles))
 ```
 
+## Source Code
+
+Browse the implementation: [`puffin/ai/`](https://github.com/MichaelTien8901/puffin/tree/main/puffin/ai)
+
 ## Next Steps
 
 Now that you understand AI-assisted trading, you're ready to move to live trading:
 
-- [Part 23: Live Trading](../../23-live-trading/) - Connect to brokers and execute real trades
+- [Part 23: Live Trading](../23-live-trading/) - Connect to brokers and execute real trades
 
 ## Further Reading
 
