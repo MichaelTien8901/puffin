@@ -372,7 +372,7 @@ class AlpacaBroker(Broker):
 
     def __del__(self):
         """Cleanup on destruction."""
-        if self.stream and self._stream_active:
+        if getattr(self, 'stream', None) and getattr(self, '_stream_active', False):
             try:
                 self.stream.stop()
             except Exception:
