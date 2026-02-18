@@ -174,7 +174,7 @@ class TradeLog:
             start_date, end_date = date_range
             filtered_trades = [
                 t for t in filtered_trades
-                if start_date <= t.timestamp <= end_date
+                if start_date.date() <= t.timestamp.date() <= end_date.date()
             ]
 
         return filtered_trades

@@ -72,7 +72,8 @@ def optimal_clusters(
 
     if method == "silhouette":
         scores = []
-        for k in range(2, max_k + 1):
+        n_samples = len(returns_clean)
+        for k in range(2, min(max_k + 1, n_samples)):
             labels = KMeans(n_clusters=k, random_state=42).fit_predict(returns_clean)
             score = silhouette_score(returns_clean, labels)
             scores.append(score)
@@ -277,11 +278,13 @@ def cluster_correlation(
         for j, label_j in enumerate(unique_labels):
             assets_j = returns.columns[labels == label_j]
 
-            # Compute average correlation between clusters
-            cross_corr = returns_clean[assets_i].corrwith(
-                returns_clean[assets_j], axis=0
-            )
-            corr_matrix[i, j] = cross_corr.mean()
+            # Compute average pairwise correlation between clusters
+            all_corr = []
+            for a in assets_i:
+                for b in assets_j:
+                    c = returns_clean[a].corr(returns_clean[b])
+                    all_corr.append(c)
+            corr_matrix[i, j] = np.nanmean(all_corr) if all_corr else 0.0
 
     return pd.DataFrame(
         corr_matrix,

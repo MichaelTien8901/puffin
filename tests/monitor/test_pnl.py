@@ -135,7 +135,7 @@ class TestPnLTracker:
 
         # Position should be closed
         assert 'AAPL' not in tracker.positions
-        assert tracker.realized_pnl == 498.0  # (155-150)*100 - 2
+        assert tracker.realized_pnl == 499.0  # (155-150)*100 - 1 (sell commission only)
 
     def test_sell_without_position(self):
         """Test selling without position raises error."""

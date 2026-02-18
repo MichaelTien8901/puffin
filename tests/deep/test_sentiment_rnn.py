@@ -136,7 +136,7 @@ class TestSentimentClassifier:
         texts = ["the stock market", "prices rising"]
 
         classifier = SentimentClassifier()
-        classifier.build_vocab(texts)
+        classifier.build_vocab(texts, min_freq=1)
 
         seq = classifier._text_to_sequence("the stock", max_len=5)
 
@@ -164,7 +164,7 @@ class TestSentimentClassifier:
         texts = ["word1 word2 word3"]
 
         classifier = SentimentClassifier()
-        classifier.build_vocab(texts)
+        classifier.build_vocab(texts, min_freq=1)
 
         long_text = "word1 word2 word3 word1 word2"
         seq = classifier._text_to_sequence(long_text, max_len=3)

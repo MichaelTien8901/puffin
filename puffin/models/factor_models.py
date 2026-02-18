@@ -397,10 +397,17 @@ def fama_macbeth(panel_data: pd.DataFrame,
         model = sm.OLS(y, X).fit()
         betas[asset] = model.params[1:]  # Exclude constant
 
-    # Create beta DataFrame
+    # Create beta DataFrame with prefixed column names to avoid collision during merge
+    beta_cols = [f'_beta_{f}' for f in factors]
     beta_df = pd.DataFrame(betas, index=factors).T
+    beta_df.columns = beta_cols
     beta_df[asset_col] = beta_df.index
     beta_df = beta_df.reset_index(drop=True)
+
+    # Also store a version with original column names for the return value
+    beta_df_return = beta_df.copy()
+    beta_df_return.columns = [c.replace('_beta_', '') if c.startswith('_beta_') else c
+                              for c in beta_df_return.columns]
 
     # Step 2: Cross-sectional regression at each time period
     times = sorted(panel_data[time_col].unique())
@@ -416,7 +423,7 @@ def fama_macbeth(panel_data: pd.DataFrame,
 
         # Run cross-sectional regression: returns ~ betas
         y = t_data[return_col].values
-        X = t_data[factors].values
+        X = t_data[beta_cols].values
         X = sm.add_constant(X)
 
         try:
@@ -467,5 +474,5 @@ def fama_macbeth(panel_data: pd.DataFrame,
         'r_squared': avg_r2,
         'n_periods': len(cs_results),
         'cross_sectional_results': cs_results,
-        'betas': beta_df,
+        'betas': beta_df_return,
     }

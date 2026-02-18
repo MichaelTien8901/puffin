@@ -133,9 +133,15 @@ class MarketDataStore:
 
         # Load based on format
         if format == "hdf5":
-            return pd.read_hdf(file_path, key="ohlcv")
+            data = pd.read_hdf(file_path, key="ohlcv")
         else:  # parquet
-            return pd.read_parquet(file_path)
+            data = pd.read_parquet(file_path)
+
+        # Restore DatetimeIndex frequency if lost (e.g., parquet doesn't preserve freq)
+        if isinstance(data.index, pd.DatetimeIndex) and data.index.freq is None:
+            data.index.freq = pd.infer_freq(data.index)
+
+        return data
 
     def list_symbols(self) -> list[str]:
         """List all symbols in storage.

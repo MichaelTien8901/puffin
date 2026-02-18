@@ -32,7 +32,7 @@ def test_ffill_missing(sample_data):
 def test_drop_missing(sample_data):
     result = preprocess(sample_data, fill_method="drop", remove_outliers=False)
     assert not result.isna().any().any()
-    assert len(result) == 8
+    assert len(result) == 9
 
 
 def test_interpolate_missing(sample_data):

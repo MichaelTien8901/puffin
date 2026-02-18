@@ -46,22 +46,27 @@ class ModelInterpreter:
 
         if "XGB" in model_type:
             # XGBoost model
-            explainer = shap.TreeExplainer(model, check_additivity=check_additivity)
+            explainer = shap.TreeExplainer(model)
         elif "LGBM" in model_type or "LightGBM" in model_type:
             # LightGBM model
-            explainer = shap.TreeExplainer(model, check_additivity=check_additivity)
+            explainer = shap.TreeExplainer(model)
         elif "CatBoost" in model_type:
             # CatBoost model
-            explainer = shap.TreeExplainer(model, check_additivity=check_additivity)
+            explainer = shap.TreeExplainer(model)
         elif "RandomForest" in model_type:
             # Sklearn RandomForest
-            explainer = shap.TreeExplainer(model, check_additivity=check_additivity)
+            explainer = shap.TreeExplainer(model)
         else:
             # Fallback to generic explainer
             explainer = shap.Explainer(model.predict, X_clean)
 
         # Calculate SHAP values
         shap_values = explainer(X_clean)
+
+        # For multi-output models (e.g., classifiers), select positive class
+        if shap_values.values.ndim == 3:
+            # Take SHAP values for the last class (positive class in binary)
+            shap_values = shap_values[..., -1]
 
         return shap_values
 

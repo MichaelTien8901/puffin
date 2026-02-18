@@ -157,12 +157,13 @@ class BayesianLinearRegression:
         beta_samples = self.trace.posterior['beta'].values.reshape(-1, X_scaled.shape[1])
 
         # Compute predictions for each posterior sample
-        predictions = alpha_samples[:, None] + X_scaled @ beta_samples.T
+        # Shape: (n_data_points, n_posterior_samples)
+        predictions = alpha_samples[None, :] + X_scaled @ beta_samples.T
 
         # Unstandardize predictions
         predictions = predictions * self._y_std + self._y_mean
 
-        # Compute mean and HDI
+        # Compute mean and HDI over posterior samples (axis=1)
         mean = predictions.mean(axis=1)
         hdi_lower = np.percentile(predictions, (1 - hdi_prob) / 2 * 100, axis=1)
         hdi_upper = np.percentile(predictions, (1 + hdi_prob) / 2 * 100, axis=1)
@@ -229,6 +230,9 @@ def bayesian_sharpe(
 
     if isinstance(returns, pd.Series):
         returns = returns.values
+
+    if len(returns) < 2:
+        raise ValueError("At least 2 return observations are required for Bayesian Sharpe estimation")
 
     excess_returns = returns - risk_free_rate
     n = len(excess_returns)

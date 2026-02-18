@@ -58,7 +58,9 @@ def compute_momentum_factors(
                 )
 
         # Cross-sectional momentum features
-        if 21 in windows and 252 in windows:
+        if (21 in windows and 252 in windows
+                and 'mom_21' in factor_data.columns
+                and 'mom_252' in factor_data.columns):
             # Momentum ratio: short-term vs long-term
             factor_data['mom_ratio'] = (
                 factor_data['mom_21'] / (factor_data['mom_252'].abs() + 1e-8)

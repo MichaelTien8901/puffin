@@ -8,8 +8,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from puffin.models.ts_diagnostics import (
     decompose_series,
-    test_stationarity,
-    test_kpss,
+    test_stationarity as ts_test_stationarity,
+    test_kpss as ts_test_kpss,
     plot_acf_pacf,
     autocorrelation,
     check_stationarity
@@ -82,7 +82,7 @@ class TestStationarity:
 
     def test_adf_stationary(self, stationary_series):
         """Test ADF on stationary series."""
-        result = test_stationarity(stationary_series)
+        result = ts_test_stationarity(stationary_series)
 
         assert 'test_statistic' in result
         assert 'p_value' in result
@@ -94,7 +94,7 @@ class TestStationarity:
 
     def test_adf_non_stationary(self, non_stationary_series):
         """Test ADF on non-stationary series."""
-        result = test_stationarity(non_stationary_series)
+        result = ts_test_stationarity(non_stationary_series)
 
         # Random walk should be non-stationary
         # Note: small sample might sometimes appear stationary
@@ -102,7 +102,7 @@ class TestStationarity:
 
     def test_kpss_stationary(self, stationary_series):
         """Test KPSS on stationary series."""
-        result = test_kpss(stationary_series)
+        result = ts_test_kpss(stationary_series)
 
         assert 'test_statistic' in result
         assert 'p_value' in result
@@ -113,7 +113,7 @@ class TestStationarity:
 
     def test_kpss_non_stationary(self, non_stationary_series):
         """Test KPSS on non-stationary series."""
-        result = test_kpss(non_stationary_series)
+        result = ts_test_kpss(non_stationary_series)
 
         # Random walk should be non-stationary
         assert 'is_stationary' in result
@@ -130,7 +130,7 @@ class TestStationarity:
         short_series = pd.Series(np.random.randn(5))
 
         with pytest.raises(ValueError, match="at least 10"):
-            test_stationarity(short_series)
+            ts_test_stationarity(short_series)
 
 
 class TestAutocorrelation:
@@ -190,7 +190,7 @@ class TestIntegration:
 
         # 3. Test residuals for stationarity
         residuals = components['residual'].dropna()
-        residual_result = test_stationarity(residuals)
+        residual_result = ts_test_stationarity(residuals)
 
         # Residuals should be more stationary than original
         assert 'is_stationary' in original_result['adf']
@@ -199,11 +199,11 @@ class TestIntegration:
     def test_difference_to_stationarity(self, non_stationary_series):
         """Test differencing to achieve stationarity."""
         # Original series should be non-stationary
-        original_result = test_stationarity(non_stationary_series)
+        original_result = ts_test_stationarity(non_stationary_series)
 
         # First difference should be stationary
         diff_series = non_stationary_series.diff().dropna()
-        diff_result = test_stationarity(diff_series)
+        diff_result = ts_test_stationarity(diff_series)
 
         # Differenced random walk should be stationary
         assert diff_result['is_stationary'] == True
@@ -217,7 +217,7 @@ class TestEdgeCases:
         series_with_nan = pd.Series([1.0, 2.0, np.nan, 4.0, 5.0] * 20)
 
         # Should handle NaN by dropping them
-        result = test_stationarity(series_with_nan)
+        result = ts_test_stationarity(series_with_nan)
         assert 'test_statistic' in result
 
     def test_constant_series(self):
@@ -227,7 +227,7 @@ class TestEdgeCases:
         # Constant series might cause issues, but should handle gracefully
         # Different implementations might handle this differently
         try:
-            result = test_stationarity(constant_series)
+            result = ts_test_stationarity(constant_series)
             # If it works, check that result is valid
             assert 'test_statistic' in result
         except (ValueError, np.linalg.LinAlgError):
@@ -245,4 +245,4 @@ class TestEdgeCases:
         empty_series = pd.Series([])
 
         with pytest.raises(ValueError):
-            test_stationarity(empty_series)
+            ts_test_stationarity(empty_series)

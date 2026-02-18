@@ -101,6 +101,9 @@ class EnsembleLongShort:
 
         predictions = pd.DataFrame(index=features.index)
 
+        # Identify rows with NaN features
+        nan_mask = features.isna().any(axis=1)
+
         # Get predictions from each model
         for i, model in enumerate(self.models):
             if hasattr(model, "predict_proba"):
@@ -117,8 +120,11 @@ class EnsembleLongShort:
             else:
                 raise ValueError(f"Model {i} does not have predict() or predict_proba().")
 
-        # Calculate weighted ensemble prediction
-        predictions["ensemble"] = (predictions[self.model_names] * self.weights_).sum(axis=1)
+        # Set predictions to NaN for rows with NaN features
+        predictions.loc[nan_mask, self.model_names] = np.nan
+
+        # Calculate weighted ensemble prediction (preserve NaN)
+        predictions["ensemble"] = (predictions[self.model_names] * self.weights_).sum(axis=1, skipna=False)
 
         return predictions
 

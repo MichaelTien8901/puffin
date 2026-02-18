@@ -5,7 +5,7 @@ from collections import defaultdict
 from datetime import datetime
 from typing import Callable
 
-from puffin.broker.base import Broker, Order, OrderStatus, OrderStatusInfo, BrokerError
+from puffin.broker.base import Broker, Order, OrderStatus, OrderStatusInfo, Position, BrokerError
 
 logger = logging.getLogger(__name__)
 

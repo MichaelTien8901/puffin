@@ -21,7 +21,7 @@ LOUGHRAN_MCDONALD_POSITIVE = {
     "excellent", "exceptional", "excited", "exciting", "exemplary", "fantastic",
     "favorable", "favorably", "favored", "friendly", "gain", "gained", "gaining",
     "gains", "good", "great", "greater", "greatest", "greatly", "grow", "growing",
-    "grown", "growth", "guidance", "high", "higher", "highest", "improve",
+    "grown", "growth", "high", "higher", "highest", "improve",
     "improved", "improvement", "improving", "increase", "increased", "increasing",
     "innovation", "innovative", "leader", "leading", "lucrative", "markedly",
     "notable", "outpace", "outpaced", "outperform", "outperformed", "pleasant",

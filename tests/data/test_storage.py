@@ -5,6 +5,14 @@ import pytest
 
 from puffin.data.storage import MarketDataStore
 
+try:
+    import tables  # noqa: F401
+    HAS_PYTABLES = True
+except ImportError:
+    HAS_PYTABLES = False
+
+needs_pytables = pytest.mark.skipif(not HAS_PYTABLES, reason="pytables not installed")
+
 
 @pytest.fixture
 def sample_ohlcv():
@@ -41,6 +49,7 @@ def test_save_and_load_parquet(parquet_store, sample_ohlcv):
     pd.testing.assert_frame_equal(loaded, sample_ohlcv)
 
 
+@needs_pytables
 def test_save_and_load_hdf5(hdf5_store, sample_ohlcv):
     hdf5_store.save_ohlcv("AAPL", sample_ohlcv, source="test", frequency="1d")
 
@@ -157,6 +166,7 @@ def test_overwrite_mode(parquet_store, sample_ohlcv):
     assert len(loaded) == 3
 
 
+@needs_pytables
 def test_migrate_parquet_to_hdf5(tmp_path, sample_ohlcv):
     store = MarketDataStore(tmp_path / "store", format="parquet")
     store.save_ohlcv("AAPL", sample_ohlcv, source="test", frequency="1d")
@@ -176,6 +186,7 @@ def test_migrate_parquet_to_hdf5(tmp_path, sample_ohlcv):
     pd.testing.assert_frame_equal(loaded, sample_ohlcv)
 
 
+@needs_pytables
 def test_migrate_hdf5_to_parquet(tmp_path, sample_ohlcv):
     store = MarketDataStore(tmp_path / "store", format="hdf5")
     store.save_ohlcv("AAPL", sample_ohlcv, source="test", frequency="1d")

@@ -44,7 +44,7 @@ def build_tfidf(
     documents: list[str],
     max_features: int = 5000,
     ngram_range: tuple[int, int] = (1, 2),
-    min_df: int = 2,
+    min_df: int = 1,
     max_df: float = 0.95,
     **kwargs: Any
 ) -> tuple[csr_matrix, list[str]]:
@@ -142,8 +142,14 @@ class DocumentTermMatrix:
         Returns:
             Document-term sparse matrix
         """
-        self.matrix_ = self.vectorizer.fit_transform(documents)
-        self.feature_names_ = self.vectorizer.get_feature_names_out().tolist()
+        try:
+            self.matrix_ = self.vectorizer.fit_transform(documents)
+            self.feature_names_ = self.vectorizer.get_feature_names_out().tolist()
+        except ValueError:
+            # Empty vocabulary (e.g., all documents are empty/stop words)
+            from scipy.sparse import csr_matrix as _csr
+            self.matrix_ = _csr((len(documents), 0))
+            self.feature_names_ = []
         return self.matrix_
 
     def transform(self, documents: list[str]) -> csr_matrix:

@@ -11,7 +11,7 @@ from puffin.models.cointegration import (
     find_cointegrated_pairs,
     calculate_spread,
     half_life,
-    test_cointegration_all_pairs,
+    test_cointegration_all_pairs as coint_test_all_pairs,
     adf_test_spread
 )
 
@@ -295,7 +295,7 @@ class TestCointegrationAllPairs:
 
     def test_all_pairs_matrix(self, multiple_series):
         """Test creating cointegration p-value matrix."""
-        p_value_matrix = test_cointegration_all_pairs(multiple_series)
+        p_value_matrix = coint_test_all_pairs(multiple_series)
 
         assert isinstance(p_value_matrix, pd.DataFrame)
         assert p_value_matrix.shape[0] == len(multiple_series.columns)

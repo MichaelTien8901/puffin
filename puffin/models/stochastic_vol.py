@@ -183,6 +183,8 @@ class StochasticVolatilityModel:
         # Use EWMA with reasonable halflife
         returns_series = pd.Series(returns)
         ewm_vol = returns_series.ewm(halflife=20).std()
+        # Fill initial NaN (EWMA needs warmup period)
+        ewm_vol = ewm_vol.bfill()
 
         self._volatility_path = ewm_vol.values
         self._volatility_forecast = ewm_vol.iloc[-1]

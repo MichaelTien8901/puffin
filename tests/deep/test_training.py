@@ -66,22 +66,25 @@ class TestEarlyStopping:
         model = SimpleModel()
         es = EarlyStopping(patience=2, restore_best_weights=True, verbose=False)
 
-        # Get initial weights
+        # First call: saves initial random weights as best, best_loss=1.0
         es(1.0, model)
-        weights_at_1 = model.fc.weight.data.clone()
 
-        # Change model weights
-        model.fc.weight.data.fill_(1.0)
+        # Improve: saves new best weights at loss=0.8
+        es(0.8, model)
+        best_weights = model.fc.weight.data.clone()
 
-        # Trigger early stopping with worse loss
-        es(0.8, model)  # Better - update best
-        es(0.9, model)  # Worse
-        es(1.0, model)  # Worse
-        should_stop = es(1.1, model)  # Worse - trigger
+        # Change model weights after saving best
+        model.fc.weight.data.fill_(99.0)
+
+        # Trigger early stopping with worse losses
+        es(0.9, model)   # Worse - counter=1
+        es(1.0, model)   # Worse - counter=2
+        should_stop = es(1.1, model)  # Worse - counter=3, triggers stop
 
         assert should_stop
-        # Check weights were restored (not all 1.0)
-        assert not torch.allclose(model.fc.weight.data, torch.ones_like(model.fc.weight.data))
+        # Check weights were restored to best (not the modified 99.0 values)
+        assert torch.allclose(model.fc.weight.data, best_weights)
+        assert not torch.allclose(model.fc.weight.data, torch.full_like(model.fc.weight.data, 99.0))
 
     def test_min_delta(self):
         """Test minimum delta for improvement."""

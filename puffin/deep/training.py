@@ -65,7 +65,7 @@ class EarlyStopping:
             if self.verbose:
                 print(f"EarlyStopping counter: {self.counter}/{self.patience}")
 
-            if self.counter >= self.patience:
+            if self.counter > self.patience:
                 self.should_stop = True
                 if self.restore_best_weights:
                     if self.verbose:
@@ -124,8 +124,10 @@ class LRScheduler:
                 optimizer, T_max=T_max, eta_min=eta_min
             )
         elif schedule_type == 'warmup_cosine':
-            # Manual implementation
+            # Manual implementation - start LR at 0 for warmup
             self.scheduler = None
+            for param_group in self.optimizer.param_groups:
+                param_group['lr'] = 0.0
         else:
             raise ValueError(f"Unknown schedule type: {schedule_type}")
 
@@ -209,10 +211,16 @@ def create_dataloaders(
     )
 
     # Create data loaders
+    if random_seed is not None and shuffle:
+        dl_generator = torch.Generator().manual_seed(random_seed)
+    else:
+        dl_generator = None
+
     train_loader = DataLoader(
         train_dataset,
         batch_size=batch_size,
-        shuffle=shuffle
+        shuffle=shuffle,
+        generator=dl_generator
     )
 
     val_loader = DataLoader(
@@ -301,6 +309,7 @@ def training_loop(
                   f"Val Loss: {avg_val_loss:.6f}")
 
         # Execute callbacks
+        stop_training = False
         if callbacks:
             for callback in callbacks:
                 result = callback(epoch, avg_train_loss, avg_val_loss, model)
@@ -308,7 +317,10 @@ def training_loop(
                 if result is True:
                     if verbose:
                         print(f"Stopping early at epoch {epoch + 1}")
+                    stop_training = True
                     break
+        if stop_training:
+            break
 
     return history
 

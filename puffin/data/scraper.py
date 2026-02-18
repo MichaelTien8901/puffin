@@ -78,6 +78,8 @@ class WebScraper:
                     headers=self._get_headers(),
                     timeout=self.timeout,
                 )
+                if response is None:
+                    return None
                 response.raise_for_status()
                 return response
             except requests.exceptions.RequestException as e:

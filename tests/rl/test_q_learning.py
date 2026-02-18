@@ -129,14 +129,15 @@ class TestQLearningAgent:
 
     def test_train_frozen_lake(self):
         """Test training on FrozenLake environment."""
+        np.random.seed(42)
         env = gym.make('FrozenLake-v1', is_slippery=False)
         agent = QLearningAgent(n_states=16, n_actions=4, epsilon=1.0, epsilon_decay=0.99)
 
-        rewards = agent.train(env, episodes=100, verbose=False)
+        rewards = agent.train(env, episodes=200, verbose=False)
 
-        assert len(rewards) == 100
+        assert len(rewards) == 200
         # Should see some improvement over time
-        assert np.mean(rewards[-10:]) >= np.mean(rewards[:10])
+        assert np.mean(rewards[-20:]) >= np.mean(rewards[:20])
         # Epsilon should decay
         assert agent.epsilon < 1.0
 

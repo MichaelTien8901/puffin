@@ -264,7 +264,7 @@ class AltDataEvaluator:
         Returns:
             Annualized Sharpe ratio
         """
-        if len(returns) < 2 or returns.std() == 0:
+        if len(returns) < 2 or returns.std() < 1e-12:
             return np.nan
 
         # Assume daily returns, annualize

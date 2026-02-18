@@ -481,7 +481,7 @@ class Doc2VecTrainer:
         if self.model is None:
             raise ValueError("No model loaded. Train or load a model first.")
 
-        return self.model.infer_vector(doc, steps=steps, alpha=alpha)
+        return self.model.infer_vector(doc, epochs=steps, alpha=alpha)
 
     def similar_documents(self, doc: List[str], topn: int = 10) -> List[Tuple[str, float]]:
         """

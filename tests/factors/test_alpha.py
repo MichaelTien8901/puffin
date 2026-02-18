@@ -134,9 +134,17 @@ class TestMomentumFactors:
         # Check some non-NaN values exist
         assert symbol_factors['mom_5'].notna().sum() > 0
 
-    def test_momentum_cross_sectional(self, sample_prices):
+    def test_momentum_cross_sectional(self):
         """Test cross-sectional momentum features."""
-        factors = compute_momentum_factors(sample_prices, windows=[21, 252])
+        # Need > 252 data points for 252-window momentum
+        dates = pd.date_range('2022-01-01', periods=300, freq='D')
+        np.random.seed(42)
+        prices = pd.DataFrame({
+            'AAPL': 100 * (1 + np.cumsum(np.random.randn(300) * 0.02)),
+            'MSFT': 200 * (1 + np.cumsum(np.random.randn(300) * 0.015)),
+        }, index=dates)
+
+        factors = compute_momentum_factors(prices, windows=[21, 252])
 
         # Should have mom_ratio and mom_diff
         assert 'mom_ratio' in factors.columns
@@ -206,8 +214,9 @@ class TestVolatilityFactors:
         """Test that volatility values are positive."""
         factors = compute_volatility_factors(sample_prices, windows=[21])
 
-        # Volatility should be non-negative
-        vol_cols = [col for col in factors.columns if 'vol' in col and 'ratio' not in col]
+        # Volatility should be non-negative (exclude ratio and trend columns)
+        vol_cols = [col for col in factors.columns
+                    if 'vol' in col and 'ratio' not in col and 'trend' not in col]
         for col in vol_cols:
             valid_values = factors[col].dropna()
             if len(valid_values) > 0:

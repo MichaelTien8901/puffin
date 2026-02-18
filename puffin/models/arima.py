@@ -105,13 +105,11 @@ class ARIMAModel:
             warnings.filterwarnings('ignore', category=UserWarning)
 
             try:
-                model = ARIMA(
-                    series_clean,
-                    order=self.order_,
-                    seasonal_order=self.seasonal_order,
-                    trend=self.trend
-                )
-                self.model_ = model.fit(method_kwargs={'warn_convergence': False})
+                kwargs = dict(order=self.order_, trend=self.trend)
+                if self.seasonal_order is not None:
+                    kwargs['seasonal_order'] = self.seasonal_order
+                model = ARIMA(series_clean, **kwargs)
+                self.model_ = model.fit()
                 self.aic_ = self.model_.aic
                 self.bic_ = self.model_.bic
 
@@ -263,7 +261,7 @@ class ARIMAModel:
                         order=(p, d, q),
                         trend=self.trend
                     )
-                    fitted_model = model.fit(method_kwargs={'warn_convergence': False})
+                    fitted_model = model.fit()
 
                     # Get information criterion
                     if information_criterion.lower() == 'aic':
@@ -351,7 +349,7 @@ class ARIMAModel:
             'order': self.order_,
             'aic': self.aic_,
             'bic': self.bic_,
-            'sigma2': self.model_.sigma2
+            'sigma2': getattr(self.model_, 'sigma2', self.model_.mse)
         }
 
 

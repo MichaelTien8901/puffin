@@ -68,10 +68,13 @@ class LSIModel:
         """
         self.n_topics = n_topics
 
+        # Scale min_df with corpus size to avoid empty vocabulary on small corpora
+        min_df = min(2, max(1, len(documents) // 3))
+
         # Create TF-IDF matrix
         self.vectorizer = TfidfVectorizer(
             max_features=10000,
-            min_df=2,
+            min_df=min_df,
             max_df=0.8,
             stop_words='english',
             ngram_range=(1, 2)
@@ -80,9 +83,12 @@ class LSIModel:
         tfidf_matrix = self.vectorizer.fit_transform(documents)
         self.feature_names = self.vectorizer.get_feature_names_out()
 
-        # Perform SVD
+        # Perform SVD (cap n_topics at available features)
+        n_components = min(n_topics, tfidf_matrix.shape[1] - 1, tfidf_matrix.shape[0] - 1)
+        n_components = max(1, n_components)
+        self.n_topics = n_components
         self.svd = TruncatedSVD(
-            n_components=n_topics,
+            n_components=n_components,
             random_state=42
         )
         self.svd.fit(tfidf_matrix)
@@ -123,8 +129,9 @@ class LSIModel:
         topics = []
 
         for topic_idx, component in enumerate(self.svd.components_):
-            # Get top word indices
-            top_indices = np.argsort(np.abs(component))[::-1][:n_words]
+            # Get top word indices (cap at available features)
+            actual_n_words = min(n_words, len(self.feature_names))
+            top_indices = np.argsort(np.abs(component))[::-1][:actual_n_words]
 
             # Get words and weights
             top_words = [
@@ -138,15 +145,16 @@ class LSIModel:
 
     def explained_variance_ratio(self) -> np.ndarray:
         """
-        Get explained variance ratio for each topic.
+        Get explained variance ratio for each topic, sorted in descending order.
 
         Returns:
-            Array of explained variance ratios
+            Array of explained variance ratios (descending)
         """
         if self.svd is None:
             raise ValueError("Model must be fitted")
 
-        return self.svd.explained_variance_ratio_
+        # Sort in descending order to ensure consistency
+        return np.sort(self.svd.explained_variance_ratio_)[::-1]
 
 
 class LDAModel:
@@ -212,8 +220,10 @@ class LDAModel:
             # Create dictionary and corpus
             self.dictionary = corpora.Dictionary(texts)
 
-            # Filter extremes
-            self.dictionary.filter_extremes(no_below=2, no_above=0.8)
+            # Filter extremes (scale threshold with corpus size)
+            n_docs = len(texts)
+            no_below = min(2, max(1, n_docs // 5))
+            self.dictionary.filter_extremes(no_below=no_below, no_above=0.8)
 
             corpus = [self.dictionary.doc2bow(text) for text in texts]
 

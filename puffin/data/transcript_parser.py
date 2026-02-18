@@ -36,7 +36,7 @@ class TranscriptParser:
         self.metric_patterns = {
             "revenue": r"revenue[s]?\s+(?:of|was|were|at)?\s*\$?([\d,.]+)\s*(million|billion|M|B)?",
             "earnings": r"(?:earnings|EPS|earnings per share)\s+(?:of|was|were|at)?\s*\$?([\d,.]+)",
-            "margin": r"(?:gross|operating|net)?\s*margin[s]?\s+(?:of|was|were|at)?\s*([\d,.]+)%?",
+            "margin": r"(?:gross|operating|net)?\s*margin[s]?\s+(?:\w+\s+)*?(?:of|was|were|at|to)\s+([\d,.]+)%?",
             "growth": r"(?:revenue|sales|earnings)?\s*growth\s+(?:of|was|were|at)?\s*([\d,.]+)%?",
             "guidance": r"guidance\s+(?:of|for)?\s*\$?([\d,.]+)\s*(million|billion|M|B)?",
         }

@@ -37,6 +37,10 @@ def hrp_weights(
     np.ndarray
         HRP portfolio weights
     """
+    # Handle single asset case
+    if len(returns.columns) == 1:
+        return np.array([1.0])
+
     # Step 1: Tree clustering
     corr_matrix = returns.corr()
     dist_matrix = _correlation_to_distance(corr_matrix)

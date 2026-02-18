@@ -46,15 +46,16 @@ class TestAutoencoder:
 
     def test_reconstruction_quality(self):
         """Test that model can reconstruct simple patterns."""
+        torch.manual_seed(42)
+        np.random.seed(42)
         model = Autoencoder(input_dim=20, encoding_dim=10, hidden_dims=[15])
         trainer = AETrainer()
 
         # Create simple data with pattern
-        np.random.seed(42)
         X = np.random.randn(100, 20)
 
         # Train
-        history = trainer.fit(model, X, epochs=20, verbose=False)
+        history = trainer.fit(model, X, epochs=50, verbose=False)
 
         # Check that loss decreases
         assert history['train_loss'][-1] < history['train_loss'][0]

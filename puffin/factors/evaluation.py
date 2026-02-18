@@ -125,6 +125,8 @@ class FactorEvaluator:
 
                     ic_series.append({'date': date, 'ic': ic})
 
+        if not ic_series:
+            return pd.Series(dtype=float)
         result = pd.DataFrame(ic_series).set_index('date')['ic']
         return result
 

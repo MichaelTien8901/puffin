@@ -115,7 +115,7 @@ def test_validate_position_size_fail(safety_controller, mock_broker):
         type=OrderType.MARKET,
     )
 
-    is_valid, reason = safety_controller.validate_position_size_fail(large_order)
+    is_valid, reason = safety_controller.validate_order(large_order)
     assert is_valid is False
     assert "max_position_size" in reason
 
@@ -240,7 +240,7 @@ def test_trading_hours_validator_market_open(mock_broker):
     order = Order(symbol="AAPL", side=OrderSide.BUY, qty=100, type=OrderType.MARKET)
 
     # Mock market as open
-    with patch("puffin.broker.safety.TradingSession") as mock_session:
+    with patch("puffin.broker.session.TradingSession") as mock_session:
         mock_session.return_value.is_market_open.return_value = True
 
         is_valid, reason = validator(mock_broker, order)
@@ -254,7 +254,7 @@ def test_trading_hours_validator_market_closed(mock_broker):
     order = Order(symbol="AAPL", side=OrderSide.BUY, qty=100, type=OrderType.MARKET)
 
     # Mock market as closed
-    with patch("puffin.broker.safety.TradingSession") as mock_session:
+    with patch("puffin.broker.session.TradingSession") as mock_session:
         mock_session.return_value.is_market_open.return_value = False
         mock_session.return_value.next_open.return_value = datetime(2024, 1, 2, 9, 30)
 
