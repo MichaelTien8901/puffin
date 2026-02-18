@@ -1,13 +1,19 @@
-// Logo sizing - background-image needs explicit height since div is empty
+// Logo: override site-header height so background-image logo is visible
+.site-header {
+  height: auto !important;
+  max-height: none !important;
+  min-height: 3.75rem;
+}
+
 .site-logo {
-  min-height: 100px;
+  min-height: 80px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 @media (min-width: 50rem) {
   .site-logo {
-    min-height: 140px;
+    min-height: 120px;
   }
 }
 
