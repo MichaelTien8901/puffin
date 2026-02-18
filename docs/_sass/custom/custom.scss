@@ -1,8 +1,14 @@
-// Logo sizing - expand to fill sidebar width
+// Logo sizing - background-image needs explicit height since div is empty
 .site-logo {
-  max-width: 100% !important;
-  width: 100% !important;
-  height: auto !important;
+  min-height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 50rem) {
+  .site-logo {
+    min-height: 140px;
+  }
 }
 
 // Custom styles for Mermaid diagrams - paper-like background
