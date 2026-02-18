@@ -1,3 +1,10 @@
+// Logo sizing - expand to fill sidebar width
+.site-logo {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
 // Custom styles for Mermaid diagrams - paper-like background
 .mermaid {
   background-color: #d5d0c8 !important;
