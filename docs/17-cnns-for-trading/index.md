@@ -96,6 +96,9 @@ The CNN-TA approach converts multi-indicator time series into 2D heatmap images,
 4. **Validation is critical**: Always use out-of-sample testing with time-series aware splits
 5. **Combine with traditional analysis**: CNNs complement fundamental and technical analysis
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`deep_learning.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/deep_learning.ipynb)
+
 ## Related Chapters
 
 - [Part 16: Deep Learning Fundamentals]({{ site.baseurl }}/16-deep-learning/) -- Foundational neural network concepts, training techniques, and monitoring that underpin CNN architectures

@@ -42,6 +42,9 @@ graph TD
     class G decision
 ```
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`operational.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/operational.ipynb)
+
 ## Related Chapters
 
 - [Part 2: Data Pipeline]({{ site.baseurl }}/02-data-pipeline/) -- Provides the market data feeds that the backtester consumes bar-by-bar

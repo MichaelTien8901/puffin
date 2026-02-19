@@ -136,6 +136,9 @@ history = gan.train(real_data, epochs=100, batch_size=64, lr=0.0002)
 
 Key applications: data augmentation for rare events, stress testing and scenario analysis, privacy-preserving data sharing, and research experimentation.
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`deep_learning.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/deep_learning.ipynb)
+
 ## Related Chapters
 
 - [Part 19: Autoencoders]({{ site.baseurl }}/19-autoencoders/) -- Variational autoencoders introduce generative latent-space modeling that GANs extend

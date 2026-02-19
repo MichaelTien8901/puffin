@@ -116,6 +116,9 @@ from puffin.nlp import (
 
 Combine multiple approaches and validate against market outcomes. Text signals work best as part of a broader feature set, not as sole predictors.
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`nlp_trading.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/nlp_trading.ipynb)
+
 ## Related Chapters
 
 - [Part 3: Alternative Data]({{ site.baseurl }}/03-alternative-data/) -- Alternative data sources like earnings transcripts and news feeds provide the raw text for NLP analysis

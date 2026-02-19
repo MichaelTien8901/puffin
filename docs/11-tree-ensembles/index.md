@@ -123,6 +123,9 @@ Tree ensemble methods provide powerful tools for trading signal generation:
 
 The combination of high predictive power, interpretability, and robustness makes tree ensembles essential tools for quantitative trading.
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`ml_models.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/ml_models.ipynb)
+
 ## Related Chapters
 
 - [Part 8: Linear Models]({{ site.baseurl }}/08-linear-models/) -- Linear models provide the interpretable baseline that tree ensembles aim to improve upon

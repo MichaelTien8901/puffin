@@ -145,6 +145,9 @@ Deep learning for trading requires:
 
 The `puffin.deep` module provides all these tools with both PyTorch and TensorFlow implementations, making it easy to experiment with deep learning for algorithmic trading.
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`deep_learning.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/deep_learning.ipynb)
+
 ## Related Chapters
 
 - [Part 17: CNNs for Trading]({{ site.baseurl }}/17-cnns-for-trading/) -- Convolutional networks extend deep learning fundamentals to spatial and temporal pattern detection

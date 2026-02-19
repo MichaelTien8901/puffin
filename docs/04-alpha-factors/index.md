@@ -95,6 +95,9 @@ Now that you understand alpha factor research, you can:
 - Hou, K., Xue, C., & Zhang, L. (2015). ["Digesting Anomalies"](https://doi.org/10.1093/rfs/hhu068). Review of Financial Studies.
 - Prado, M. L. (2018). ["Advances in Financial Machine Learning"](https://www.wiley.com/en-us/Advances+in+Financial+Machine+Learning-p-9781119482086). Wiley.
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`data_pipeline.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/data_pipeline.ipynb)
+
 ## Related Chapters
 
 - [Part 2: Data Pipeline]({{ site.baseurl }}/02-data-pipeline/) -- The data pipeline feeds clean market data into factor computations

@@ -110,6 +110,9 @@ bc = BenchmarkComparison()
 health = SystemHealth()
 ```
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`operational.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/operational.ipynb)
+
 ## Related Chapters
 
 - [Part 24: Risk Management]({{ site.baseurl }}/24-risk-management/) -- Drawdown, VaR, and exposure metrics feed directly into monitoring dashboards

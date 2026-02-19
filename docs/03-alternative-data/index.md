@@ -109,6 +109,9 @@ flowchart LR
 - IC, IR, and decay metrics distinguish useful signals from noise
 - Always validate alternative data before deploying capital
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`data_pipeline.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/data_pipeline.ipynb)
+
 ## Related Chapters
 
 - [Part 2: Data Pipeline]({{ site.baseurl }}/02-data-pipeline/) -- The data pipeline provides the foundation for ingesting and storing alternative data

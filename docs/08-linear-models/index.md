@@ -101,6 +101,9 @@ graph TD
 - **Part 10: Machine Learning** -- Non-linear models, ensemble methods
 - **Part 11: Deep Learning** -- Neural networks for trading
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`ml_models.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/ml_models.ipynb)
+
 ## Related Chapters
 
 - [Part 4: Alpha Factors]({{ site.baseurl }}/04-alpha-factors/) -- Alpha factors serve as input features for linear return-prediction models

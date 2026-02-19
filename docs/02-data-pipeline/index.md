@@ -53,6 +53,9 @@ flowchart LR
 2. [Caching & Storage](02-caching-storage) -- SQLite cache for fast lookups, HDF5 and Parquet for long-term storage with MarketDataStore
 3. [Preprocessing](03-preprocessing) -- Handling missing values, outlier detection, data validation, and the preprocessing pipeline
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`data_pipeline.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/data_pipeline.ipynb)
+
 ## Related Chapters
 
 - [Part 3: Alternative Data]({{ site.baseurl }}/03-alternative-data/) -- Alternative data feeds into the pipeline as a non-traditional data source

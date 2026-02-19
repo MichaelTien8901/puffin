@@ -93,6 +93,9 @@ Bayesian methods provide powerful tools for trading:
 3. **Robust Inference**: Handle outliers and fat tails naturally
 4. **Principled Comparison**: Compare strategies accounting for estimation uncertainty
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`ml_models.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/ml_models.ipynb)
+
 ## Related Chapters
 
 - [Part 9: Time Series Models]({{ site.baseurl }}/09-time-series-models/) -- Bayesian methods naturally extend time series models with uncertainty estimates

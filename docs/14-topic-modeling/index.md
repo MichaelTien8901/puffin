@@ -129,6 +129,9 @@ for i in range(0, len(all_transcripts), batch_size):
     process_batch_results(weights)
 ```
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`nlp_trading.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/nlp_trading.ipynb)
+
 ## Related Chapters
 
 - [Part 13: NLP for Trading]({{ site.baseurl }}/13-nlp-trading/) -- NLP fundamentals provide the tokenization and vectorization foundation that topic models build upon

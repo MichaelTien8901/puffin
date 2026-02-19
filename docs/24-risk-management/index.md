@@ -87,6 +87,9 @@ This chapter is divided into three sections:
    - Use wider stops in volatile markets
    - Tighten stops in trending markets
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`operational.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/operational.ipynb)
+
 ## Related Chapters
 
 - [Part 5: Portfolio Optimization]({{ site.baseurl }}/05-portfolio-optimization/) -- Mean-variance and risk-parity constraints that define the allocation boundaries risk controls enforce

@@ -120,6 +120,9 @@ RNNs and their gated variants provide a natural framework for sequential financi
 {: .warning }
 > RNN-based price prediction is not a guaranteed path to profits. Markets are noisy and non-stationary. Always use walk-forward validation, test on out-of-sample data, and combine model predictions with proper risk management before deploying to live trading.
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`deep_learning.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/deep_learning.ipynb)
+
 ## Related Chapters
 
 - [Part 16: Deep Learning Fundamentals]({{ site.baseurl }}/16-deep-learning/) -- Foundational neural network concepts, training utilities, and TensorBoard monitoring that underpin RNN architectures

@@ -130,6 +130,9 @@ The `AETrainer` class handles training for all four variants, including automati
 2. [**Variational Autoencoders**](02-variational-ae.md) -- Probabilistic latent spaces, the reparameterization trick, synthetic data generation, and the VAE loss function
 3. [**Conditional Autoencoders for Asset Pricing**](03-conditional-ae.md) -- Regime-dependent modeling, macro-conditioned factor extraction, and a complete trading pipeline
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`deep_learning.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/deep_learning.ipynb)
+
 ## Related Chapters
 
 - [Part 16: Deep Learning Fundamentals]({{ site.baseurl }}/16-deep-learning/) -- Foundational neural network training techniques that autoencoders build upon

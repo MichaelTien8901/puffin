@@ -111,6 +111,9 @@ graph TD
 
 Unsupervised learning complements supervised models by revealing structure in unlabeled data. Use it for portfolio construction, risk management, and regime detection.
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`ml_models.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/ml_models.ipynb)
+
 ## Related Chapters
 
 - [Part 11: Tree Ensembles]({{ site.baseurl }}/11-tree-ensembles/) -- Tree models consume PCA-reduced features and cluster labels as inputs

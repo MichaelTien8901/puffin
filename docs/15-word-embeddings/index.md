@@ -101,6 +101,9 @@ Applications include:
 - Theme-based portfolio selection
 - Sentiment tracking across documents
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`nlp_trading.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/nlp_trading.ipynb)
+
 ## Related Chapters
 
 - [Part 13: NLP for Trading]({{ site.baseurl }}/13-nlp-trading/) -- NLP fundamentals cover the tokenization and preprocessing pipeline that feeds into embedding models

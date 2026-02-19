@@ -89,6 +89,9 @@ graph TD
 - Develop multi-pair portfolio optimization
 - Integrate with live trading systems
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`ml_models.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/ml_models.ipynb)
+
 ## Related Chapters
 
 - [Part 8: Linear Models]({{ site.baseurl }}/08-linear-models/) -- Provides the linear regression foundation that ARIMA and VAR extend

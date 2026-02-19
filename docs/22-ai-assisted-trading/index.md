@@ -104,6 +104,9 @@ Before starting this chapter, make sure you have:
 {: .warning }
 LLM API calls incur real costs. Start with short texts and use caching aggressively during development. Monitor your token usage before running batch analyses.
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`operational.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/operational.ipynb)
+
 ## Related Chapters
 
 - [Part 15: Word Embeddings]({{ site.baseurl }}/15-word-embeddings/) -- Transformer and word2vec embeddings that power the NLP features LLM providers build on

@@ -115,6 +115,9 @@ In the next chapter, we'll explore:
 - Multi-period portfolio optimization
 - Factor-based portfolio construction
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`data_pipeline.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/data_pipeline.ipynb)
+
 ## Related Chapters
 
 - [Part 4: Alpha Factors]({{ site.baseurl }}/04-alpha-factors/) -- Alpha factor scores determine how capital is allocated across assets

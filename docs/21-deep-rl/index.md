@@ -101,6 +101,9 @@ graph TD
 - **Custom environments** enable realistic backtesting with transaction costs and position limits
 - **Evaluation** requires out-of-sample testing with risk-adjusted metrics
 
+{: .tip }
+> **Notebook**: Run the examples interactively in [`deep_learning.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/deep_learning.ipynb)
+
 ## Related Chapters
 
 - [Part 16: Deep Learning Fundamentals]({{ site.baseurl }}/16-deep-learning/) -- Neural network foundations used by DQN and PPO policy networks
