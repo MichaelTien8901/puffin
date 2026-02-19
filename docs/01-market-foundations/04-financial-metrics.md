@@ -80,7 +80,7 @@ The **Sharpe ratio** measures risk-adjusted return — how much return you earn 
 ```python
 def sharpe_ratio(
     returns: pd.Series,
-    risk_free_rate: float = 0.05,
+    risk_free_rate: float = 0.05,  # Annualized; update to current T-bill rate, use 0.0 for crypto
     periods_per_year: int = 252
 ) -> float:
     excess_returns = returns - risk_free_rate / periods_per_year
@@ -144,7 +144,7 @@ def drawdown_duration(equity_curve: pd.Series) -> int:
 def alpha_beta(
     strategy_returns: pd.Series,
     benchmark_returns: pd.Series,
-    risk_free_rate: float = 0.05,
+    risk_free_rate: float = 0.05,  # Annualized; update to current T-bill rate, use 0.0 for crypto
     periods_per_year: int = 252
 ) -> tuple[float, float]:
     # Beta = Cov(strategy, benchmark) / Var(benchmark)

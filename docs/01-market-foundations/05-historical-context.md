@@ -14,7 +14,7 @@ Understanding past market events is essential for building robust trading system
 ## Case Study 1: The 2010 Flash Crash
 
 **Date**: May 6, 2010
-**What happened**: The Dow Jones dropped nearly 1,000 points (about 9%) in minutes, then recovered most of the loss within 20 minutes. Some stocks traded at $0.01 while others traded at $100,000.
+**What happened**: The Dow Jones dropped nearly 1,000 points (about 9%) in under 5 minutes, then recovered most of the loss over the next ~20 minutes. Some stocks traded at $0.01 while others traded at $100,000.
 
 **Cause**: A large institutional sell order (Waddell & Reed) executed via an algorithm that sold E-mini S&P 500 futures based purely on volume, without regard to price or time. This triggered a cascade of selling by HFT firms and other algorithms.
 
