@@ -262,7 +262,7 @@ fig.savefig("xgboost_shap_summary.png")
 - Implement proper position sizing
 
 {: .important }
-> In production, always compare live performance against backtest expectations. Significant degradation may indicate regime change, feature drift, or data pipeline issues. Automate this monitoring with the tools in [Part 9: Monitoring & Analytics](/09-monitoring-analytics/).
+> In production, always compare live performance against backtest expectations. Significant degradation may indicate regime change, feature drift, or data pipeline issues. Automate this monitoring with the tools in [Part 25: Monitoring & Analytics]({{ site.baseurl }}/25-monitoring-analytics/).
 
 ## Source Code
 

@@ -48,7 +48,7 @@ graph TD
 ## Related Chapters
 
 - [Part 2: Data Pipeline]({{ site.baseurl }}/02-data-pipeline/) -- Provides the market data feeds that the backtester consumes bar-by-bar
-- [Part 6: Strategy Modules]({{ site.baseurl }}/06-strategies/) -- Defines the strategies that backtesting evaluates against historical data
+- [Part 6: Strategy Modules]({{ site.baseurl }}/06-trading-strategies/) -- Defines the strategies that backtesting evaluates against historical data
 - [Part 24: Risk Management]({{ site.baseurl }}/24-risk-management/) -- Position sizing and stop-loss rules applied during backtest execution
 - [Part 8: Linear Models]({{ site.baseurl }}/08-linear-models/) -- Evaluate linear model predictions in a realistic backtest setting
 - [Part 25: Monitoring & Analytics]({{ site.baseurl }}/25-monitoring-analytics/) -- Performance dashboards that visualize backtest results

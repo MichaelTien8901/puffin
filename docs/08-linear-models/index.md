@@ -114,7 +114,7 @@ graph TD
 
 ## References
 
-- Fama, E. F., & French, K. R. (1993). [Common risk factors in the returns on stocks and bonds](https://doi.org/10.1016/0304-405X(93)90023-5). *Journal of Financial Economics*.
+- Fama, E. F., & French, K. R. (1993). [Common risk factors in the returns on stocks and bonds](https://doi.org/10.1016/0304-405X%2893%2990023-5). *Journal of Financial Economics*.
 - Fama, E. F., & MacBeth, J. D. (1973). [Risk, return, and equilibrium: Empirical tests](https://doi.org/10.1086/260061). *Journal of Political Economy*.
 - Campbell, J. Y., Lo, A. W., & MacKinlay, A. C. (1997). *The Econometrics of Financial Markets*. Princeton University Press.
 

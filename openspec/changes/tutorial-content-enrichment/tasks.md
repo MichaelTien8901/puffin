@@ -64,15 +64,15 @@
 - [x] 9.3 Create `notebooks/nlp_trading.ipynb` covering chapters 13–15 with puffin nlp imports
 - [x] 9.4 Create `notebooks/deep_learning.ipynb` covering chapters 16–21 with puffin deep/rl imports
 - [x] 9.5 Create `notebooks/operational.ipynb` covering chapters 06–07, 22–25 with puffin strategies/backtest/broker/monitor imports
-- [ ] 9.6 Validate all 5 notebooks execute cleanly via `jupyter nbconvert --execute` in Docker
+- [x] 9.6 Validate all 5 notebooks execute cleanly via `jupyter nbconvert --execute` in Docker
 
 ## 10. Verification
 
-- [ ] 10.1 Run `bundle exec jekyll build` and verify zero build errors
-- [ ] 10.2 Validate all internal links (cross-chapter, sub-page, anchor links) resolve correctly using html-proofer or manual crawl of built `_site/`
-- [ ] 10.3 Validate all external links (GitHub source links, paper references, tool websites) return 200 status codes
+- [x] 10.1 Run `bundle exec jekyll build` and verify zero build errors
+- [x] 10.2 Validate all internal links (cross-chapter, sub-page, anchor links) resolve correctly using html-proofer or manual crawl of built `_site/`
+- [x] 10.3 Validate all external links (GitHub source links, paper references, tool websites) return 200 status codes
 - [x] 10.4 Verify all 22 expanded chapters have index.md with has_children + ≥2 child pages
 - [x] 10.5 Verify all chapters have at least one Mermaid diagram
 - [x] 10.6 Verify all chapters have a Related Chapters section with 2–4 links
-- [ ] 10.7 Spot-check 5 chapters for working puffin import code examples
+- [x] 10.7 Spot-check 5 chapters for working puffin import code examples
 - [x] 10.8 Verify nav_order values are sequential and consistent across all index.md and child pages (no duplicates, no gaps, correct parent-child ordering)
