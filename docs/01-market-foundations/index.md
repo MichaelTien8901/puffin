@@ -19,3 +19,6 @@ You'll also learn how to measure whether a trade was good or bad using metrics l
 4. [Financial Metrics](04-financial-metrics) — Returns, volatility, Sharpe ratio, drawdown, alpha, and beta
 5. [Historical Context](05-historical-context) — Flash crash, COVID-19, and GameStop case studies
 6. [Market Microstructure](06-market-microstructure) — ITCH data format, FIX protocol, bar types, and order flow
+
+{: .tip }
+> **Notebook**: Run the examples interactively in [`01_financial_metrics.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/01_financial_metrics.ipynb)
