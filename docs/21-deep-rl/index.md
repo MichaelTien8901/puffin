@@ -102,7 +102,7 @@ graph TD
 - **Evaluation** requires out-of-sample testing with risk-adjusted metrics
 
 {: .tip }
-> **Notebook**: Run the examples interactively in [`deep_learning.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/deep_learning.ipynb)
+> **Notebook**: Run the examples interactively in [`deep_learning.ipynb`](https://github.com/MichaelTien8901/puffin/blob/main/notebooks/deep_learning.ipynb) (covers Parts 16–21, including RL)
 
 ## Related Chapters
 
@@ -117,4 +117,4 @@ Browse the implementation: [`puffin/rl/`](https://github.com/MichaelTien8901/puf
 
 ## Next Steps
 
-Part 22 covers **live trading integration**: connecting RL agents to broker APIs for paper and live execution.
+Part 22 covers **AI-Assisted Trading**: using LLMs for sentiment analysis, structured reasoning, and agentic portfolio management.

@@ -55,7 +55,7 @@ from puffin.ai.providers import ClaudeProvider
 # Initialize with API key (or use ANTHROPIC_API_KEY env var)
 provider = ClaudeProvider(
     api_key="your-api-key",
-    model="claude-sonnet-4-5-20250929",  # Default model
+    model="claude-sonnet-4-5-20250929",  # Date-versioned for reproducibility; use "claude-sonnet-4-5" for latest
     cache_dir=".cache/llm",             # Response caching directory
     cache_ttl=3600,                      # 1 hour cache TTL
 )

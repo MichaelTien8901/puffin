@@ -23,7 +23,7 @@ An **exchange** is a regulated marketplace where buyers and sellers meet to trad
 | Binance | Global | Cryptocurrency | 24/7 |
 
 {: .note }
-US equity markets also have **pre-market** (4:00–9:30 AM) and **after-hours** (4:00–8:00 PM) sessions with lower liquidity.
+US equity markets also have **pre-market** (4:00–9:30 AM) and **after-hours** (4:00–8:00 PM) sessions with lower liquidity. Actual availability varies by broker — many retail platforms limit pre-market access to 7:00–9:30 AM ET.
 
 ### Electronic vs. Floor Trading
 
@@ -42,9 +42,9 @@ The **order book** is the core data structure of any exchange. It maintains all 
     │   ASK (Sell Orders)     │
     │   $150.05  ×  200       │
     │   $150.04  ×  500       │
-    │   $150.03  ×  1,200     │ ← Best Ask (Lowest)
+    │   $150.03  ×  1,200     │ ← Best Ask (Lowest sell price)
     │─────────────────────────│
-    │   $150.02  ×  800       │ ← Best Bid (Highest)
+    │   $150.02  ×  800       │ ← Best Bid (Highest buy price)
     │   $150.01  ×  1,500     │
     │   $150.00  ×  3,000     │
     │   BID (Buy Orders)      │

@@ -133,8 +133,10 @@ graph TD
 ## Prerequisites
 
 - Python 3.11+
-- Basic Python programming knowledge
+- Basic Python programming knowledge (NumPy and pandas familiarity recommended)
+- Familiarity with Jupyter notebooks
 - Basic understanding of financial markets (helpful but not required)
+- GPU recommended for Parts 16–21 (deep learning and RL)
 
 ## Quick Start
 
